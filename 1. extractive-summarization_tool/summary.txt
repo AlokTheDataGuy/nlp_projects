@@ -1,0 +1,40 @@
+Summaries generated through this approach often exhibit
+a good performance in fluency and grammar. When manually summarizing text, we tend to focus on the main sections. In summary,
+the aforementioned methods focus on the overall topic information of the entire document, that is, the global
+information, neglecting the local topic information of individual sections. In order to address these issues, this
+paper proposes a long-document extractive summarization model that integrates local topic information and
+document hierarchy information into current topic segment. (2) This paper utilizes LSTM-Minus18 to obtain distributed representations of local information and combines
+it with text summarization tasks. Finally, a selection-based sorting method is employed to choose the most relevant sentences as
+the summary. Experiments results on multiple datasets show that this approach can generate concise summaries
+that still preserve valuable information. The sequence labeling method has been widely applied in extractive text summarization and has
+achieved good results. This model generates document summarization by learning the importance
+of each sentence within the document. They merged the block encoding results
+with NTM to generate global topic features. By replacing the self-attention
+mechanism of the transformer with a sliding window self-attention mechanism, the time complexity is reduced
+to linear level, enabling the model to handle long documents easily. Therefore, this paper uses the Longformer as the encoder and incorporates local
+contextual information of the current topic segment and hierarchical structure information of the document. The LSTM-Minus method is a novel approach for learning embedding of text segments,
+utilizing subtraction between LSTM hidden vectors to learn the distributed representation of sentence segments. The model is inspired by the long document extractive
+model proposed by Ruan et al.29, which incorporates hierarchical structure information. The final model of
+this paper is obtained by incorporating local topic information. Because this work deals with long text corpus,
+the encoder used is based on the Longformer, an improvement over the transformer pre-training language
+model, which allows for better encoding of long documents. The text hierarchical structure information
+embedding module embeds the hierarchical structure information of the text into the fused representation of
+the local topic information and textual context. Therefore, in this paper, we uses the Longformer
+pre-training language model as the text encoder. The
+input of the local topic information extraction module is the contextual representation of each sentence obtained
+by the encoder. Therefore, this study utilizes a Bi-LSTM to encode the sentence context representations
+to get the hidden vector representation of each sentence. For the i-th topic segment ti , the specific expression method can
+be found in Eqs. Since the T5 model is not specifically trained for text summarization tasks, it shows poor results. This indicates that our extractive summarization model, incorporating
+Longformer as the text encoder, effectively addresses the challenges posed by the length limitations of BERT
+pre-trained language models. The introduced hierarchical structure information extraction module in our model
+proves beneficial in aiding the model’s understanding of the source text, thereby enhancing the quality of the
+generated summaries. Moreover, in terms of the
+Rouge-1, Rouge-2, and Rouge-L evaluation metrics, our proposed model exhibits improvements of 4.17, 3.33,
+and 4.62, respectively, over the TextRank model on the CNN/DM dataset. This indicates that incorporating the hierarchical structure information of texts enables the model
+to better identify important sentences for long texts. This suggests
+that in long text data, different chapters represent different topics, and incorporating local topic information
+allows the model to comprehend the content of the article more deeply, resulting in high-quality summaries. When simultaneously integrating article hierarchical structure information and local topic information into
+the baseline model, the model leverages both as auxiliary information during summary generation. Comparing the results of Baseline (+ AHE) and Baseline (+ L-Inf) to
+Baseline (+ All), we observe an increase in all three metrics, indicating that each proposed module is necessary
+and contributes to the overall enhancement of the model’s performance. Moreover, we recognize certain limitations in the model’s
+extraction of hierarchical information from text.
