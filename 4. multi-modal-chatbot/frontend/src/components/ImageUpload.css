@@ -1,0 +1,40 @@
+.image-upload {
+  position: relative;
+}
+
+.image-upload-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  color: #666;
+}
+
+.image-upload-label:hover {
+  background-color: #e0e0e0;
+}
+
+.image-upload-input {
+  position: absolute;
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+
+@media (prefers-color-scheme: dark) {
+  .image-upload-label {
+    background-color: #333;
+    color: #ccc;
+  }
+  
+  .image-upload-label:hover {
+    background-color: #444;
+  }
+}
