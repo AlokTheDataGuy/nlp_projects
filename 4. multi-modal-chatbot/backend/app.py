@@ -10,6 +10,12 @@ from typing import Optional, List, Dict, Any
 import uuid
 
 # Import services
+import sys
+import os
+
+# Add the current directory to the path so imports work correctly
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 from services.input_classifier import classify_input
 from services.task_dispatcher import dispatch_tasks
 from services.response_aggregator import aggregate_responses
@@ -46,7 +52,7 @@ async def chat(
             img_path = f"uploads/{uuid.uuid4()}.jpg"
             with open(img_path, "wb") as f:
                 f.write(await image.read())
-            
+
             # Open the image for processing
             with Image.open(img_path) as img:
                 # Convert to base64 for response
@@ -56,7 +62,7 @@ async def chat(
                     "path": img_path,
                     "base64": base64.b64encode(buffered.getvalue()).decode("utf-8")
                 }
-        
+
         # Parse conversation history
         history = []
         if conversation_history:
@@ -65,35 +71,23 @@ async def chat(
                 history = json.loads(conversation_history)
             except Exception as e:
                 print(f"Error parsing conversation history: {e}")
-        
+
         # Classify input
         input_type = classify_input(message, image_data is not None)
-        
+
         # Dispatch tasks to appropriate models
         tasks_results = await dispatch_tasks(input_type, message, image_data, history)
-        
+
         # Aggregate responses
         response = aggregate_responses(tasks_results)
-        
+
         return JSONResponse(content=response)
-    
+
     except Exception as e:
         print(f"Error processing request: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
-@app.post("/generate-image")
-async def generate_image(prompt: str = Form(...)):
-    try:
-        from models.image_generator import generate_image
-        
-        # Generate image from prompt
-        image_base64 = await generate_image(prompt)
-        
-        return JSONResponse(content={"image": image_base64, "prompt": prompt})
-    
-    except Exception as e:
-        print(f"Error generating image: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
+# Image generation endpoint removed
 
 if __name__ == "__main__":
     uvicorn.run("app:app", host="0.0.0.0", port=8000, reload=True)

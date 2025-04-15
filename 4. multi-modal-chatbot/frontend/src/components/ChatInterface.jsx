@@ -11,36 +11,48 @@ const ChatInterface = ({ onSendMessage, setLoading, messages }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!message.trim() && !image) return;
-    
+
+    // Store the current message and image for API call
+    const currentMessage = message;
+    const currentImage = image;
+    const currentImagePreview = imagePreview;
+
+    // Clear inputs immediately
+    setMessage('');
+    setImage(null);
+    setImagePreview(null);
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
+    }
+
     // Add user message to the chat
     onSendMessage({
       id: Date.now(),
       role: 'user',
-      content: message,
-      image: imagePreview
+      content: currentMessage,
+      image: currentImagePreview
     });
-    
+
     // Prepare for API call
     setLoading(true);
-    
+
     try {
       // Create conversation history for the API
       const history = messages.map(msg => ({
         role: msg.role,
         content: msg.content
       }));
-      
+
       // Send message to API
-      const response = await sendMessage(message, image, history);
-      
+      const response = await sendMessage(currentMessage, currentImage, history);
+
       // Add bot response to chat
       onSendMessage({
         id: Date.now() + 1,
         role: 'assistant',
-        content: response.text,
-        image: response.has_image ? `data:image/png;base64,${response.image}` : null
+        content: response.text
       });
     } catch (error) {
       console.error('Error sending message:', error);
@@ -52,18 +64,12 @@ const ChatInterface = ({ onSendMessage, setLoading, messages }) => {
       });
     } finally {
       setLoading(false);
-      setMessage('');
-      setImage(null);
-      setImagePreview(null);
-      if (fileInputRef.current) {
-        fileInputRef.current.value = '';
-      }
     }
   };
 
   const handleImageUpload = (file) => {
     setImage(file);
-    
+
     // Create preview
     const reader = new FileReader();
     reader.onloadend = () => {
@@ -85,8 +91,8 @@ const ChatInterface = ({ onSendMessage, setLoading, messages }) => {
       {imagePreview && (
         <div className="image-preview-container">
           <img src={imagePreview} alt="Preview" className="image-preview" />
-          <button 
-            className="remove-image-btn" 
+          <button
+            className="remove-image-btn"
             onClick={handleRemoveImage}
             aria-label="Remove image"
           >
@@ -94,13 +100,13 @@ const ChatInterface = ({ onSendMessage, setLoading, messages }) => {
           </button>
         </div>
       )}
-      
+
       <form onSubmit={handleSubmit} className="chat-form">
-        <ImageUpload 
-          onImageUpload={handleImageUpload} 
+        <ImageUpload
+          onImageUpload={handleImageUpload}
           ref={fileInputRef}
         />
-        
+
         <input
           type="text"
           value={message}
@@ -108,9 +114,9 @@ const ChatInterface = ({ onSendMessage, setLoading, messages }) => {
           placeholder="Type a message..."
           className="message-input"
         />
-        
-        <button 
-          type="submit" 
+
+        <button
+          type="submit"
           className="send-button"
           disabled={!message.trim() && !image}
         >

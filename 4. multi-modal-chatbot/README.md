@@ -1,12 +1,19 @@
 # Multi-Modal Chatbot
 
-A chatbot that can understand image inputs, generate relevant images, and seamlessly integrate visual and textual information in conversations.
+A chatbot that can understand both text and image inputs, providing seamless multi-modal interactions.
+
+## Screenshots
+
+### Text Generation
+![Text Generation](Screenshots/Text%20Generation.png)
+
+### Image Understanding
+![Image Understanding](Screenshots/Image_Understanding.png)
 
 ## Features
 
 - Text-based conversation with AI
 - Image understanding and analysis
-- Image generation based on text prompts
 - Seamless integration of text and visual content
 
 ## Architecture
@@ -21,18 +28,17 @@ The chatbot follows this flow:
 6. Response Aggregator collects all outputs and creates a coherent response
 7. API Gateway returns the unified response to the UI
 
+
 ## Models Used
 
+- **Text Processing**: qwen2.5:7b (via Ollama)
 - **Image Understanding**: llama3.2-vision:11b (via Ollama)
-- **Text Processing/Generation**: qwen2.5:7b (via Ollama)
-- **Image Generation**: stabilityai/stable-diffusion-3-medium-diffusers (via Hugging Face)
 
 ## Prerequisites
 
 - Python 3.9+
 - Node.js 16+
 - [Ollama](https://ollama.ai/) installed locally
-- GPU recommended for faster image generation
 
 ## Setup
 
@@ -53,7 +59,7 @@ pip install -r requirements.txt
 
 # Run the backend server
 cd backend
-python app.py
+python run.py
 ```
 
 The backend server will run at http://localhost:8000
@@ -76,7 +82,7 @@ The frontend will be available at http://localhost:3000
 1. Open your browser and navigate to http://localhost:3000
 2. Type a message or upload an image (or both)
 3. The chatbot will process your input and respond accordingly
-4. You can ask the chatbot to generate images by using phrases like "show me", "create an image of", etc.
+4. You can ask questions about uploaded images to get AI analysis
 
 ## Project Structure
 
@@ -84,10 +90,10 @@ The frontend will be available at http://localhost:3000
 multi-modal-chatbot/
 ├── backend/
 │   ├── app.py                 # FastAPI main application
+│   ├── run.py                 # Script to run the backend server
 │   ├── models/
 │   │   ├── image_processor.py # llama3.2-vision:11b integration
-│   │   ├── text_processor.py  # qwen2.5:7b integration
-│   │   └── image_generator.py # stable-diffusion-3-medium integration
+│   │   └── text_processor.py  # qwen2.5:7b integration
 │   ├── services/
 │   │   ├── input_classifier.py
 │   │   ├── task_dispatcher.py
@@ -112,6 +118,5 @@ multi-modal-chatbot/
 
 ## Notes
 
-- The first image generation might take some time as the model needs to be loaded into memory
-- For optimal performance, a GPU with at least 8GB of VRAM is recommended
 - The chatbot stores uploaded images in the `uploads` directory, which are automatically cleaned up after 24 hours
+- For better performance when analyzing large images, they are automatically resized while preserving aspect ratio

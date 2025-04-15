@@ -17,18 +17,18 @@ function App() {
         <h1>Multi-Modal Chatbot</h1>
         <p>Chat with text and images using AI</p>
       </header>
-      
+
       <main className="app-main">
         <MessageList messages={messages} loading={loading} />
-        <ChatInterface 
-          onSendMessage={addMessage} 
-          setLoading={setLoading} 
+        <ChatInterface
+          onSendMessage={addMessage}
+          setLoading={setLoading}
           messages={messages}
         />
       </main>
-      
+
       <footer className="app-footer">
-        <p>Powered by llama3.2-vision:11b, qwen2.5:7b, and stable-diffusion-3-medium</p>
+        <p>Powered by llama3.2-vision:11b for image understanding and qwen2.5:7b for text processing</p>
       </footer>
     </div>
   )
