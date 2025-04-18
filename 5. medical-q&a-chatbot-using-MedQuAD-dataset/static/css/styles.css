@@ -1,0 +1,292 @@
+/* Import theme variables */
+@import 'theme.css';
+
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* App container */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1rem;
+}
+
+/* Header styles */
+.header {
+  text-align: center;
+  padding: 1rem 0;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.header h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: var(--accent);
+}
+
+.header p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+/* Message list styles */
+.message-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Message item styles */
+.message {
+  display: flex;
+  max-width: 80%;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  position: relative;
+  line-height: 1.5;
+}
+
+.message.user {
+  align-self: flex-end;
+  background-color: var(--user-bubble);
+  color: var(--user-text);
+  border-bottom-right-radius: 4px;
+}
+
+.message.assistant {
+  align-self: flex-start;
+  background-color: var(--assistant-bubble);
+  color: var(--assistant-text);
+  border-bottom-left-radius: 4px;
+}
+
+.message-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.75rem;
+  background-color: var(--accent);
+  color: white;
+  font-size: 1.2rem;
+}
+
+.message-content {
+  flex: 1;
+}
+
+.message-content p {
+  margin-bottom: 0.5rem;
+}
+
+.message-content p:last-child {
+  margin-bottom: 0;
+}
+
+.message-metadata {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-top: 0.25rem;
+}
+
+/* Chat interface styles */
+.chat-interface {
+  padding: 1rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.input-container {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.message-input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  background-color: var(--input-background);
+  color: var(--text);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.message-input:focus {
+  border-color: var(--accent);
+}
+
+.send-button {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.send-button:hover {
+  background-color: var(--accent-hover);
+}
+
+.send-button:disabled {
+  background-color: var(--accent-disabled);
+  cursor: not-allowed;
+}
+
+.send-button svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Loading indicator styles */
+.loading-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.loading-dots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* Theme toggle */
+.theme-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .message {
+    max-width: 90%;
+  }
+
+  .header h1 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Entity tags */
+.entity-tags h4 {
+  font-size: 0.9rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-secondary);
+}
+
+.entity-tag {
+  display: inline-block;
+  background-color: var(--accent-light);
+  color: var(--accent);
+  padding: 0.2rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Abbreviation list */
+.abbreviation-list h4 {
+  font-size: 0.9rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-secondary);
+}
+
+.abbreviation-list ul {
+  list-style-type: none;
+  padding-left: 0.5rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.abbreviation-list li {
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+}
+
+.abbreviation {
+  font-weight: bold;
+  color: var(--accent);
+}
+
+.long-form {
+  color: var(--text-secondary);
+}
+
+/* Source citation */
+.source-citation {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 0.5rem;
+  font-style: italic;
+}
