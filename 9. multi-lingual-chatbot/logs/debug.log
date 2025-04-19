@@ -1,0 +1,1123 @@
+2025-04-19 22:44:08,582 - debug - DEBUG - CHECKPOINT: api.chat:101 - API received chat request
+DATA: {
+  "message": "आप कैसे है",
+  "session_id": "e729dd44-3c2a-4293-ab0e-63f14df70e23",
+  "language": "eng_Latn"
+}
+2025-04-19 22:44:08,582 - debug - DEBUG - CHECKPOINT: chatbot.process_message:49 - Starting process_message
+DATA: {
+  "message": "आप कैसे है",
+  "session_id": "e729dd44-3c2a-4293-ab0e-63f14df70e23",
+  "preferred_language": "eng_Latn"
+}
+2025-04-19 22:44:08,582 - debug - DEBUG - CHECKPOINT: chatbot.process_message:66 - Retrieved conversation history
+DATA: {
+  "conversation_length": 0
+}
+2025-04-19 22:44:08,588 - debug - DEBUG - CHECKPOINT: chatbot.process_message:69 - Before language detection
+DATA: {
+  "message": "आप कैसे है"
+}
+2025-04-19 22:44:08,588 - debug - DEBUG - CHECKPOINT: language_detection.detect:148 - Starting language detection
+DATA: {
+  "text": "आप कैसे है"
+}
+2025-04-19 22:44:08,588 - debug - DEBUG - CHECKPOINT: language_detection.detect:159 - Cleaned text for detection
+DATA: {
+  "cleaned_text": "आप कैसे है"
+}
+2025-04-19 22:44:08,595 - debug - DEBUG - CHECKPOINT: language_detection.detect:162 - Before script detection
+DATA: {
+  "cleaned_text": "आप कैसे है"
+}
+2025-04-19 22:44:08,602 - debug - DEBUG - CHECKPOINT: language_detection.detect:164 - After script detection
+DATA: {
+  "script_lang": "hin_Deva"
+}
+2025-04-19 22:44:08,602 - debug - DEBUG - CHECKPOINT: language_detection.detect:168 - Using script-based detection result
+DATA: {
+  "language": "hin_Deva",
+  "confidence": 0.9
+}
+2025-04-19 22:44:08,609 - debug - DEBUG - CHECKPOINT: chatbot.process_message:72 - After language detection
+DATA: {
+  "detected_lang": "hin_Deva",
+  "confidence": 0.9
+}
+2025-04-19 22:44:08,609 - debug - DEBUG - CHECKPOINT: chatbot.process_message:92 - Final language selection
+DATA: {
+  "user_lang": "eng_Latn",
+  "detected_lang": "hin_Deva",
+  "preferred_language": "eng_Latn"
+}
+2025-04-19 22:44:08,616 - debug - DEBUG - CHECKPOINT: chatbot.process_message:126 - Added user message to history
+DATA: {
+  "role": "user",
+  "content": "आप कैसे है",
+  "language": "eng_Latn",
+  "english_content": "आप कैसे है",
+  "timestamp": 1745082848.6160474
+}
+2025-04-19 22:44:08,616 - debug - DEBUG - CHECKPOINT: chatbot.process_message:130 - Before generating response
+DATA: {
+  "english_message": "आप कैसे है",
+  "conversation_length": 1
+}
+2025-04-19 22:44:08,616 - debug - DEBUG - CHECKPOINT: chatbot.process_message:136 - After generating response
+DATA: {
+  "english_response": "I'm sorry, I didn't understand that. Could you please rephrase?"
+}
+2025-04-19 22:44:08,616 - debug - DEBUG - CHECKPOINT: chatbot.process_message:173 - Added bot response to history
+DATA: {
+  "role": "assistant",
+  "content": "I'm sorry, I didn't understand that. Could you please rephrase?",
+  "language": "eng_Latn",
+  "english_content": "I'm sorry, I didn't understand that. Could you please rephrase?",
+  "timestamp": 1745082848.61639
+}
+2025-04-19 22:44:08,623 - debug - DEBUG - CHECKPOINT: chatbot.process_message:198 - Completed process_message
+DATA: {
+  "session_id": "e729dd44-3c2a-4293-ab0e-63f14df70e23",
+  "message": "I'm sorry, I didn't understand that. Could you please rephrase?",
+  "detected_language": "hin_Deva",
+  "language_confidence": 0.9,
+  "user_language": "eng_Latn",
+  "english_message": "आप कैसे है",
+  "english_response": "I'm sorry, I didn't understand that. Could you please rephrase?"
+}
+2025-04-19 22:44:08,630 - debug - DEBUG - CHECKPOINT: api.chat:139 - API processed message
+DATA: {
+  "session_id": "e729dd44-3c2a-4293-ab0e-63f14df70e23",
+  "message": "I'm sorry, I didn't understand that. Could you please rephrase?",
+  "detected_language": "hin_Deva",
+  "language_confidence": 0.9,
+  "user_language": "eng_Latn",
+  "english_message": "आप कैसे है",
+  "english_response": "I'm sorry, I didn't understand that. Could you please rephrase?"
+}
+2025-04-19 22:52:46,084 - debug - DEBUG - CHECKPOINT: api.chat:101 - API received chat request
+DATA: {
+  "message": "आप कैसे है",
+  "session_id": "55fb8695-4c3d-4085-bc74-34f78b27908a",
+  "language": "eng_Latn"
+}
+2025-04-19 22:52:46,203 - debug - DEBUG - CHECKPOINT: language_detection.detect:148 - Starting language detection
+DATA: {
+  "text": "आप कैसे है"
+}
+2025-04-19 22:52:46,210 - debug - DEBUG - CHECKPOINT: language_detection.detect:159 - Cleaned text for detection
+DATA: {
+  "cleaned_text": "आप कैसे है"
+}
+2025-04-19 22:52:46,210 - debug - DEBUG - CHECKPOINT: language_detection.detect:162 - Before script detection
+DATA: {
+  "cleaned_text": "आप कैसे है"
+}
+2025-04-19 22:52:46,210 - debug - DEBUG - CHECKPOINT: language_detection.detect:164 - After script detection
+DATA: {
+  "script_lang": "hin_Deva"
+}
+2025-04-19 22:52:46,210 - debug - DEBUG - CHECKPOINT: language_detection.detect:168 - Using script-based detection result
+DATA: {
+  "language": "hin_Deva",
+  "confidence": 0.9
+}
+2025-04-19 22:52:46,210 - debug - DEBUG - CHECKPOINT: api.chat:114 - API detected language
+DATA: {
+  "detected_lang": "hin_Deva",
+  "confidence": 0.9
+}
+2025-04-19 22:52:46,210 - debug - DEBUG - CHECKPOINT: api.chat:124 - API using detected language
+DATA: {
+  "preferred_language": "hin_Deva"
+}
+2025-04-19 22:52:46,210 - debug - DEBUG - CHECKPOINT: chatbot.process_message:49 - Starting process_message
+DATA: {
+  "message": "आप कैसे है",
+  "session_id": "55fb8695-4c3d-4085-bc74-34f78b27908a",
+  "preferred_language": "hin_Deva"
+}
+2025-04-19 22:52:46,216 - debug - DEBUG - CHECKPOINT: chatbot.process_message:66 - Retrieved conversation history
+DATA: {
+  "conversation_length": 0
+}
+2025-04-19 22:52:46,216 - debug - DEBUG - CHECKPOINT: chatbot.process_message:69 - Before language detection
+DATA: {
+  "message": "आप कैसे है"
+}
+2025-04-19 22:52:46,216 - debug - DEBUG - CHECKPOINT: language_detection.detect:148 - Starting language detection
+DATA: {
+  "text": "आप कैसे है"
+}
+2025-04-19 22:52:46,216 - debug - DEBUG - CHECKPOINT: language_detection.detect:159 - Cleaned text for detection
+DATA: {
+  "cleaned_text": "आप कैसे है"
+}
+2025-04-19 22:52:46,223 - debug - DEBUG - CHECKPOINT: language_detection.detect:162 - Before script detection
+DATA: {
+  "cleaned_text": "आप कैसे है"
+}
+2025-04-19 22:52:46,223 - debug - DEBUG - CHECKPOINT: language_detection.detect:164 - After script detection
+DATA: {
+  "script_lang": "hin_Deva"
+}
+2025-04-19 22:52:46,231 - debug - DEBUG - CHECKPOINT: language_detection.detect:168 - Using script-based detection result
+DATA: {
+  "language": "hin_Deva",
+  "confidence": 0.9
+}
+2025-04-19 22:52:46,231 - debug - DEBUG - CHECKPOINT: chatbot.process_message:72 - After language detection
+DATA: {
+  "detected_lang": "hin_Deva",
+  "confidence": 0.9
+}
+2025-04-19 22:52:46,238 - debug - DEBUG - CHECKPOINT: chatbot.process_message:86 - Using preferred language
+DATA: {
+  "user_lang": "hin_Deva"
+}
+2025-04-19 22:52:46,238 - debug - DEBUG - CHECKPOINT: chatbot.process_message:97 - Final language selection
+DATA: {
+  "user_lang": "hin_Deva",
+  "detected_lang": "hin_Deva",
+  "preferred_language": "hin_Deva"
+}
+2025-04-19 22:52:46,244 - debug - DEBUG - CHECKPOINT: chatbot.process_message:107 - Before translation to English
+DATA: {
+  "message": "आप कैसे है",
+  "source_lang": "hin_Deva"
+}
+2025-04-19 22:52:46,244 - debug - DEBUG - CHECKPOINT: translation.translate_to_english:233 - Starting translation to English
+DATA: {
+  "text": "आप कैसे है",
+  "source_lang": "hin_Deva"
+}
+2025-04-19 22:53:11,946 - debug - DEBUG - CHECKPOINT: translation.translate_to_english:240 - Successful translation to English
+DATA: {
+  "result": "How are you?"
+}
+2025-04-19 22:53:11,946 - debug - DEBUG - CHECKPOINT: chatbot.process_message:114 - After translation to English
+DATA: {
+  "english_message": "How are you?"
+}
+2025-04-19 22:53:11,946 - debug - DEBUG - CHECKPOINT: chatbot.process_message:131 - Added user message to history
+DATA: {
+  "role": "user",
+  "content": "आप कैसे है",
+  "language": "hin_Deva",
+  "english_content": "How are you?",
+  "timestamp": 1745083391.94642
+}
+2025-04-19 22:53:11,946 - debug - DEBUG - CHECKPOINT: chatbot.process_message:135 - Before generating response
+DATA: {
+  "english_message": "How are you?",
+  "conversation_length": 1
+}
+2025-04-19 22:53:11,946 - debug - DEBUG - CHECKPOINT: chatbot._generate_response:234 - Checking for non-English phrases
+DATA: {
+  "message": "How are you?"
+}
+2025-04-19 22:53:11,946 - debug - DEBUG - CHECKPOINT: chatbot.process_message:141 - After generating response
+DATA: {
+  "english_response": "I'm sorry, I didn't understand that. Could you please rephrase?"
+}
+2025-04-19 22:53:11,946 - debug - DEBUG - CHECKPOINT: chatbot.process_message:147 - Before translating response from English
+DATA: {
+  "english_response": "I'm sorry, I didn't understand that. Could you please rephrase?",
+  "target_lang": "hin_Deva"
+}
+2025-04-19 22:53:11,962 - debug - DEBUG - CHECKPOINT: translation.translate_from_english:296 - Starting translation from English
+DATA: {
+  "text": "I'm sorry, I didn't understand that. Could you please rephrase?",
+  "target_lang": "hin_Deva"
+}
+2025-04-19 22:53:14,233 - debug - DEBUG - CHECKPOINT: translation.translate_from_english:303 - Successful translation from English
+DATA: {
+  "result": "मुझे माफ कर दो, मैं समझ नहीं पाया. क्या आप कृपया इसे फिर से लिख सकते हैं?"
+}
+2025-04-19 22:53:14,233 - debug - DEBUG - CHECKPOINT: chatbot.process_message:154 - After translating response from English
+DATA: {
+  "response_content": "मुझे माफ कर दो, मैं समझ नहीं पाया. क्या आप कृपया इसे फिर से लिख सकते हैं?"
+}
+2025-04-19 22:53:14,234 - debug - DEBUG - CHECKPOINT: chatbot.process_message:158 - Before cultural adaptation
+DATA: {
+  "response_content": "मुझे माफ कर दो, मैं समझ नहीं पाया. क्या आप कृपया इसे फिर से लिख सकते हैं?"
+}
+2025-04-19 22:53:14,235 - debug - DEBUG - CHECKPOINT: chatbot.process_message:161 - After cultural adaptation
+DATA: {
+  "response_content": "मुझे माफ कर दो, मैं समझ नहीं पाया. क्या आप कृपया इसे फिर से लिख सकते हैं?"
+}
+2025-04-19 22:53:14,235 - debug - DEBUG - CHECKPOINT: chatbot.process_message:178 - Added bot response to history
+DATA: {
+  "role": "assistant",
+  "content": "मुझे माफ कर दो, मैं समझ नहीं पाया. क्या आप कृपया इसे फिर से लिख सकते हैं?",
+  "language": "hin_Deva",
+  "english_content": "I'm sorry, I didn't understand that. Could you please rephrase?",
+  "timestamp": 1745083394.235604
+}
+2025-04-19 22:53:14,235 - debug - DEBUG - CHECKPOINT: chatbot.process_message:203 - Completed process_message
+DATA: {
+  "session_id": "55fb8695-4c3d-4085-bc74-34f78b27908a",
+  "message": "मुझे माफ कर दो, मैं समझ नहीं पाया. क्या आप कृपया इसे फिर से लिख सकते हैं?",
+  "detected_language": "hin_Deva",
+  "language_confidence": 0.9,
+  "user_language": "hin_Deva",
+  "english_message": "How are you?",
+  "english_response": "I'm sorry, I didn't understand that. Could you please rephrase?"
+}
+2025-04-19 22:53:14,236 - debug - DEBUG - CHECKPOINT: api.chat:136 - API processed message
+DATA: {
+  "session_id": "55fb8695-4c3d-4085-bc74-34f78b27908a",
+  "message": "मुझे माफ कर दो, मैं समझ नहीं पाया. क्या आप कृपया इसे फिर से लिख सकते हैं?",
+  "detected_language": "hin_Deva",
+  "language_confidence": 0.9,
+  "user_language": "hin_Deva",
+  "english_message": "How are you?",
+  "english_response": "I'm sorry, I didn't understand that. Could you please rephrase?"
+}
+2025-04-19 23:17:24,266 - debug - DEBUG - CHECKPOINT: api.chat:101 - API received chat request
+DATA: {
+  "message": "आप कैसे है",
+  "session_id": "1ea33ba3-65b1-4ab1-9760-ae32a2e3ae66",
+  "language": "eng_Latn"
+}
+2025-04-19 23:17:24,390 - debug - DEBUG - CHECKPOINT: language_detection.detect:148 - Starting language detection
+DATA: {
+  "text": "आप कैसे है"
+}
+2025-04-19 23:17:24,397 - debug - DEBUG - CHECKPOINT: language_detection.detect:159 - Cleaned text for detection
+DATA: {
+  "cleaned_text": "आप कैसे है"
+}
+2025-04-19 23:17:24,397 - debug - DEBUG - CHECKPOINT: language_detection.detect:162 - Before script detection
+DATA: {
+  "cleaned_text": "आप कैसे है"
+}
+2025-04-19 23:17:24,411 - debug - DEBUG - CHECKPOINT: language_detection.detect:164 - After script detection
+DATA: {
+  "script_lang": "hin_Deva"
+}
+2025-04-19 23:17:24,427 - debug - DEBUG - CHECKPOINT: language_detection.detect:168 - Using script-based detection result
+DATA: {
+  "language": "hin_Deva",
+  "confidence": 0.9
+}
+2025-04-19 23:17:24,427 - debug - DEBUG - CHECKPOINT: api.chat:114 - API detected language
+DATA: {
+  "detected_lang": "hin_Deva",
+  "confidence": 0.9
+}
+2025-04-19 23:17:24,432 - debug - DEBUG - CHECKPOINT: api.chat:124 - API using detected language
+DATA: {
+  "preferred_language": "hin_Deva"
+}
+2025-04-19 23:17:24,433 - debug - DEBUG - CHECKPOINT: chatbot.process_message:49 - Starting process_message
+DATA: {
+  "message": "आप कैसे है",
+  "session_id": "1ea33ba3-65b1-4ab1-9760-ae32a2e3ae66",
+  "preferred_language": "hin_Deva"
+}
+2025-04-19 23:17:24,446 - debug - DEBUG - CHECKPOINT: chatbot.process_message:66 - Retrieved conversation history
+DATA: {
+  "conversation_length": 0
+}
+2025-04-19 23:17:24,451 - debug - DEBUG - CHECKPOINT: chatbot.process_message:69 - Before language detection
+DATA: {
+  "message": "आप कैसे है"
+}
+2025-04-19 23:17:24,454 - debug - DEBUG - CHECKPOINT: language_detection.detect:148 - Starting language detection
+DATA: {
+  "text": "आप कैसे है"
+}
+2025-04-19 23:17:24,459 - debug - DEBUG - CHECKPOINT: language_detection.detect:159 - Cleaned text for detection
+DATA: {
+  "cleaned_text": "आप कैसे है"
+}
+2025-04-19 23:17:24,466 - debug - DEBUG - CHECKPOINT: language_detection.detect:162 - Before script detection
+DATA: {
+  "cleaned_text": "आप कैसे है"
+}
+2025-04-19 23:17:24,472 - debug - DEBUG - CHECKPOINT: language_detection.detect:164 - After script detection
+DATA: {
+  "script_lang": "hin_Deva"
+}
+2025-04-19 23:17:24,472 - debug - DEBUG - CHECKPOINT: language_detection.detect:168 - Using script-based detection result
+DATA: {
+  "language": "hin_Deva",
+  "confidence": 0.9
+}
+2025-04-19 23:17:24,479 - debug - DEBUG - CHECKPOINT: chatbot.process_message:72 - After language detection
+DATA: {
+  "detected_lang": "hin_Deva",
+  "confidence": 0.9
+}
+2025-04-19 23:17:24,479 - debug - DEBUG - CHECKPOINT: chatbot.process_message:86 - Using preferred language
+DATA: {
+  "user_lang": "hin_Deva"
+}
+2025-04-19 23:17:24,488 - debug - DEBUG - CHECKPOINT: chatbot.process_message:97 - Final language selection
+DATA: {
+  "user_lang": "hin_Deva",
+  "detected_lang": "hin_Deva",
+  "preferred_language": "hin_Deva"
+}
+2025-04-19 23:17:24,488 - debug - DEBUG - CHECKPOINT: chatbot.process_message:107 - Before translation to English
+DATA: {
+  "message": "आप कैसे है",
+  "source_lang": "hin_Deva"
+}
+2025-04-19 23:17:24,495 - debug - DEBUG - CHECKPOINT: translation.translate_to_english:233 - Starting translation to English
+DATA: {
+  "text": "आप कैसे है",
+  "source_lang": "hin_Deva"
+}
+2025-04-19 23:17:48,095 - debug - DEBUG - CHECKPOINT: translation.translate_to_english:240 - Successful translation to English
+DATA: {
+  "result": "How are you?"
+}
+2025-04-19 23:17:48,096 - debug - DEBUG - CHECKPOINT: chatbot.process_message:114 - After translation to English
+DATA: {
+  "english_message": "How are you?"
+}
+2025-04-19 23:17:48,098 - debug - DEBUG - CHECKPOINT: chatbot.process_message:131 - Added user message to history
+DATA: {
+  "role": "user",
+  "content": "आप कैसे है",
+  "language": "hin_Deva",
+  "english_content": "How are you?",
+  "timestamp": 1745084868.0974398
+}
+2025-04-19 23:17:48,100 - debug - DEBUG - CHECKPOINT: chatbot.process_message:135 - Before generating response
+DATA: {
+  "english_message": "How are you?",
+  "conversation_length": 1
+}
+2025-04-19 23:17:48,100 - debug - DEBUG - CHECKPOINT: chatbot._generate_response:234 - Checking for non-English phrases
+DATA: {
+  "message": "How are you?"
+}
+2025-04-19 23:17:48,100 - debug - DEBUG - CHECKPOINT: chatbot.process_message:141 - After generating response
+DATA: {
+  "english_response": "I'm sorry, I didn't understand that. Could you please rephrase?"
+}
+2025-04-19 23:17:48,100 - debug - DEBUG - CHECKPOINT: chatbot.process_message:147 - Before translating response from English
+DATA: {
+  "english_response": "I'm sorry, I didn't understand that. Could you please rephrase?",
+  "target_lang": "hin_Deva"
+}
+2025-04-19 23:17:48,100 - debug - DEBUG - CHECKPOINT: translation.translate_from_english:296 - Starting translation from English
+DATA: {
+  "text": "I'm sorry, I didn't understand that. Could you please rephrase?",
+  "target_lang": "hin_Deva"
+}
+2025-04-19 23:17:51,903 - debug - DEBUG - CHECKPOINT: translation.translate_from_english:303 - Successful translation from English
+DATA: {
+  "result": "मुझे माफ कर दो, मैं समझ नहीं पाया. क्या आप कृपया इसे फिर से लिख सकते हैं?"
+}
+2025-04-19 23:17:51,903 - debug - DEBUG - CHECKPOINT: chatbot.process_message:154 - After translating response from English
+DATA: {
+  "response_content": "मुझे माफ कर दो, मैं समझ नहीं पाया. क्या आप कृपया इसे फिर से लिख सकते हैं?"
+}
+2025-04-19 23:17:51,903 - debug - DEBUG - CHECKPOINT: chatbot.process_message:158 - Before cultural adaptation
+DATA: {
+  "response_content": "मुझे माफ कर दो, मैं समझ नहीं पाया. क्या आप कृपया इसे फिर से लिख सकते हैं?"
+}
+2025-04-19 23:17:51,903 - debug - DEBUG - CHECKPOINT: chatbot.process_message:161 - After cultural adaptation
+DATA: {
+  "response_content": "मुझे माफ कर दो, मैं समझ नहीं पाया. क्या आप कृपया इसे फिर से लिख सकते हैं?"
+}
+2025-04-19 23:17:51,903 - debug - DEBUG - CHECKPOINT: chatbot.process_message:178 - Added bot response to history
+DATA: {
+  "role": "assistant",
+  "content": "मुझे माफ कर दो, मैं समझ नहीं पाया. क्या आप कृपया इसे फिर से लिख सकते हैं?",
+  "language": "hin_Deva",
+  "english_content": "I'm sorry, I didn't understand that. Could you please rephrase?",
+  "timestamp": 1745084871.9032264
+}
+2025-04-19 23:17:51,903 - debug - DEBUG - CHECKPOINT: chatbot.process_message:203 - Completed process_message
+DATA: {
+  "session_id": "1ea33ba3-65b1-4ab1-9760-ae32a2e3ae66",
+  "message": "मुझे माफ कर दो, मैं समझ नहीं पाया. क्या आप कृपया इसे फिर से लिख सकते हैं?",
+  "detected_language": "hin_Deva",
+  "language_confidence": 0.9,
+  "user_language": "hin_Deva",
+  "english_message": "How are you?",
+  "english_response": "I'm sorry, I didn't understand that. Could you please rephrase?"
+}
+2025-04-19 23:17:51,903 - debug - DEBUG - CHECKPOINT: api.chat:136 - API processed message
+DATA: {
+  "session_id": "1ea33ba3-65b1-4ab1-9760-ae32a2e3ae66",
+  "message": "मुझे माफ कर दो, मैं समझ नहीं पाया. क्या आप कृपया इसे फिर से लिख सकते हैं?",
+  "detected_language": "hin_Deva",
+  "language_confidence": 0.9,
+  "user_language": "hin_Deva",
+  "english_message": "How are you?",
+  "english_response": "I'm sorry, I didn't understand that. Could you please rephrase?"
+}
+2025-04-19 23:18:09,802 - debug - DEBUG - CHECKPOINT: api.chat:101 - API received chat request
+DATA: {
+  "message": "तुझे नाव काय आहे",
+  "session_id": "1ea33ba3-65b1-4ab1-9760-ae32a2e3ae66",
+  "language": "eng_Latn"
+}
+2025-04-19 23:18:09,824 - debug - DEBUG - CHECKPOINT: language_detection.detect:148 - Starting language detection
+DATA: {
+  "text": "तुझे नाव काय आहे"
+}
+2025-04-19 23:18:09,830 - debug - DEBUG - CHECKPOINT: language_detection.detect:159 - Cleaned text for detection
+DATA: {
+  "cleaned_text": "तुझे नाव काय आहे"
+}
+2025-04-19 23:18:09,830 - debug - DEBUG - CHECKPOINT: language_detection.detect:162 - Before script detection
+DATA: {
+  "cleaned_text": "तुझे नाव काय आहे"
+}
+2025-04-19 23:18:09,830 - debug - DEBUG - CHECKPOINT: language_detection.detect:164 - After script detection
+DATA: {
+  "script_lang": "mar_Deva"
+}
+2025-04-19 23:18:09,830 - debug - DEBUG - CHECKPOINT: language_detection.detect:168 - Using script-based detection result
+DATA: {
+  "language": "mar_Deva",
+  "confidence": 0.9
+}
+2025-04-19 23:18:09,830 - debug - DEBUG - CHECKPOINT: api.chat:114 - API detected language
+DATA: {
+  "detected_lang": "mar_Deva",
+  "confidence": 0.9
+}
+2025-04-19 23:18:09,830 - debug - DEBUG - CHECKPOINT: api.chat:124 - API using detected language
+DATA: {
+  "preferred_language": "mar_Deva"
+}
+2025-04-19 23:18:09,830 - debug - DEBUG - CHECKPOINT: chatbot.process_message:49 - Starting process_message
+DATA: {
+  "message": "तुझे नाव काय आहे",
+  "session_id": "1ea33ba3-65b1-4ab1-9760-ae32a2e3ae66",
+  "preferred_language": "mar_Deva"
+}
+2025-04-19 23:18:09,830 - debug - DEBUG - CHECKPOINT: chatbot.process_message:66 - Retrieved conversation history
+DATA: {
+  "conversation_length": 2
+}
+2025-04-19 23:18:09,830 - debug - DEBUG - CHECKPOINT: chatbot.process_message:69 - Before language detection
+DATA: {
+  "message": "तुझे नाव काय आहे"
+}
+2025-04-19 23:18:09,830 - debug - DEBUG - CHECKPOINT: language_detection.detect:148 - Starting language detection
+DATA: {
+  "text": "तुझे नाव काय आहे"
+}
+2025-04-19 23:18:09,830 - debug - DEBUG - CHECKPOINT: language_detection.detect:159 - Cleaned text for detection
+DATA: {
+  "cleaned_text": "तुझे नाव काय आहे"
+}
+2025-04-19 23:18:09,836 - debug - DEBUG - CHECKPOINT: language_detection.detect:162 - Before script detection
+DATA: {
+  "cleaned_text": "तुझे नाव काय आहे"
+}
+2025-04-19 23:18:09,837 - debug - DEBUG - CHECKPOINT: language_detection.detect:164 - After script detection
+DATA: {
+  "script_lang": "mar_Deva"
+}
+2025-04-19 23:18:09,837 - debug - DEBUG - CHECKPOINT: language_detection.detect:168 - Using script-based detection result
+DATA: {
+  "language": "mar_Deva",
+  "confidence": 0.9
+}
+2025-04-19 23:18:09,840 - debug - DEBUG - CHECKPOINT: chatbot.process_message:72 - After language detection
+DATA: {
+  "detected_lang": "mar_Deva",
+  "confidence": 0.9
+}
+2025-04-19 23:18:09,840 - debug - DEBUG - CHECKPOINT: chatbot.process_message:86 - Using preferred language
+DATA: {
+  "user_lang": "mar_Deva"
+}
+2025-04-19 23:18:09,840 - debug - DEBUG - CHECKPOINT: chatbot.process_message:97 - Final language selection
+DATA: {
+  "user_lang": "mar_Deva",
+  "detected_lang": "mar_Deva",
+  "preferred_language": "mar_Deva"
+}
+2025-04-19 23:18:09,840 - debug - DEBUG - CHECKPOINT: chatbot.process_message:107 - Before translation to English
+DATA: {
+  "message": "तुझे नाव काय आहे",
+  "source_lang": "mar_Deva"
+}
+2025-04-19 23:18:09,840 - debug - DEBUG - CHECKPOINT: translation.translate_to_english:233 - Starting translation to English
+DATA: {
+  "text": "तुझे नाव काय आहे",
+  "source_lang": "mar_Deva"
+}
+2025-04-19 23:18:10,446 - debug - DEBUG - CHECKPOINT: translation.translate_to_english:240 - Successful translation to English
+DATA: {
+  "result": "What's your name?"
+}
+2025-04-19 23:18:10,446 - debug - DEBUG - CHECKPOINT: chatbot.process_message:114 - After translation to English
+DATA: {
+  "english_message": "What's your name?"
+}
+2025-04-19 23:18:10,446 - debug - DEBUG - CHECKPOINT: chatbot.process_message:131 - Added user message to history
+DATA: {
+  "role": "user",
+  "content": "तुझे नाव काय आहे",
+  "language": "mar_Deva",
+  "english_content": "What's your name?",
+  "timestamp": 1745084890.446526
+}
+2025-04-19 23:18:10,446 - debug - DEBUG - CHECKPOINT: chatbot.process_message:135 - Before generating response
+DATA: {
+  "english_message": "What's your name?",
+  "conversation_length": 3
+}
+2025-04-19 23:18:10,446 - debug - DEBUG - CHECKPOINT: chatbot._generate_response:234 - Checking for non-English phrases
+DATA: {
+  "message": "What's your name?"
+}
+2025-04-19 23:18:10,446 - debug - DEBUG - CHECKPOINT: chatbot.process_message:141 - After generating response
+DATA: {
+  "english_response": "I am a multilingual chatbot that can speak English, Hindi, Bengali, and Marathi. You can call me MultiLingua."
+}
+2025-04-19 23:18:10,446 - debug - DEBUG - CHECKPOINT: chatbot.process_message:147 - Before translating response from English
+DATA: {
+  "english_response": "I am a multilingual chatbot that can speak English, Hindi, Bengali, and Marathi. You can call me MultiLingua.",
+  "target_lang": "mar_Deva"
+}
+2025-04-19 23:18:10,446 - debug - DEBUG - CHECKPOINT: translation.translate_from_english:296 - Starting translation from English
+DATA: {
+  "text": "I am a multilingual chatbot that can speak English, Hindi, Bengali, and Marathi. You can call me MultiLingua.",
+  "target_lang": "mar_Deva"
+}
+2025-04-19 23:18:13,064 - debug - DEBUG - CHECKPOINT: translation.translate_from_english:303 - Successful translation from English
+DATA: {
+  "result": "मी एक बहुभाषिक चॅटबॉट आहे जो इंग्रजी, हिंदी, बंगाली आणि मराठी बोलू शकतो. तुम्ही मला मल्टीलिंगुआ म्हणू शकता."
+}
+2025-04-19 23:18:13,064 - debug - DEBUG - CHECKPOINT: chatbot.process_message:154 - After translating response from English
+DATA: {
+  "response_content": "मी एक बहुभाषिक चॅटबॉट आहे जो इंग्रजी, हिंदी, बंगाली आणि मराठी बोलू शकतो. तुम्ही मला मल्टीलिंगुआ म्हणू शकता."
+}
+2025-04-19 23:18:13,064 - debug - DEBUG - CHECKPOINT: chatbot.process_message:158 - Before cultural adaptation
+DATA: {
+  "response_content": "मी एक बहुभाषिक चॅटबॉट आहे जो इंग्रजी, हिंदी, बंगाली आणि मराठी बोलू शकतो. तुम्ही मला मल्टीलिंगुआ म्हणू शकता."
+}
+2025-04-19 23:18:13,064 - debug - DEBUG - CHECKPOINT: chatbot.process_message:161 - After cultural adaptation
+DATA: {
+  "response_content": "मी एक बहुभाषिक चॅटबॉट आहे जो इंग्रजी, हिंदी, बंगाली आणि मराठी बोलू शकतो. तुम्ही मला मल्टीलिंगुआ म्हणू शकता."
+}
+2025-04-19 23:18:13,064 - debug - DEBUG - CHECKPOINT: chatbot.process_message:178 - Added bot response to history
+DATA: {
+  "role": "assistant",
+  "content": "मी एक बहुभाषिक चॅटबॉट आहे जो इंग्रजी, हिंदी, बंगाली आणि मराठी बोलू शकतो. तुम्ही मला मल्टीलिंगुआ म्हणू शकता.",
+  "language": "mar_Deva",
+  "english_content": "I am a multilingual chatbot that can speak English, Hindi, Bengali, and Marathi. You can call me MultiLingua.",
+  "timestamp": 1745084893.0646675
+}
+2025-04-19 23:18:13,064 - debug - DEBUG - CHECKPOINT: chatbot.process_message:203 - Completed process_message
+DATA: {
+  "session_id": "1ea33ba3-65b1-4ab1-9760-ae32a2e3ae66",
+  "message": "मी एक बहुभाषिक चॅटबॉट आहे जो इंग्रजी, हिंदी, बंगाली आणि मराठी बोलू शकतो. तुम्ही मला मल्टीलिंगुआ म्हणू शकता.",
+  "detected_language": "mar_Deva",
+  "language_confidence": 0.9,
+  "user_language": "mar_Deva",
+  "english_message": "What's your name?",
+  "english_response": "I am a multilingual chatbot that can speak English, Hindi, Bengali, and Marathi. You can call me MultiLingua."
+}
+2025-04-19 23:18:13,064 - debug - DEBUG - CHECKPOINT: api.chat:136 - API processed message
+DATA: {
+  "session_id": "1ea33ba3-65b1-4ab1-9760-ae32a2e3ae66",
+  "message": "मी एक बहुभाषिक चॅटबॉट आहे जो इंग्रजी, हिंदी, बंगाली आणि मराठी बोलू शकतो. तुम्ही मला मल्टीलिंगुआ म्हणू शकता.",
+  "detected_language": "mar_Deva",
+  "language_confidence": 0.9,
+  "user_language": "mar_Deva",
+  "english_message": "What's your name?",
+  "english_response": "I am a multilingual chatbot that can speak English, Hindi, Bengali, and Marathi. You can call me MultiLingua."
+}
+2025-04-19 23:20:09,394 - debug - DEBUG - CHECKPOINT: api.chat:101 - API received chat request
+DATA: {
+  "message": "तुम्ही कसे काम करता",
+  "session_id": "1ea33ba3-65b1-4ab1-9760-ae32a2e3ae66",
+  "language": "eng_Latn"
+}
+2025-04-19 23:20:09,433 - debug - DEBUG - CHECKPOINT: language_detection.detect:148 - Starting language detection
+DATA: {
+  "text": "तुम्ही कसे काम करता"
+}
+2025-04-19 23:20:09,433 - debug - DEBUG - CHECKPOINT: language_detection.detect:159 - Cleaned text for detection
+DATA: {
+  "cleaned_text": "तुम्ही कसे काम करता"
+}
+2025-04-19 23:20:09,433 - debug - DEBUG - CHECKPOINT: language_detection.detect:162 - Before script detection
+DATA: {
+  "cleaned_text": "तुम्ही कसे काम करता"
+}
+2025-04-19 23:20:09,433 - debug - DEBUG - CHECKPOINT: language_detection.detect:164 - After script detection
+DATA: {
+  "script_lang": "mar_Deva"
+}
+2025-04-19 23:20:09,448 - debug - DEBUG - CHECKPOINT: language_detection.detect:168 - Using script-based detection result
+DATA: {
+  "language": "mar_Deva",
+  "confidence": 0.9
+}
+2025-04-19 23:20:09,448 - debug - DEBUG - CHECKPOINT: api.chat:114 - API detected language
+DATA: {
+  "detected_lang": "mar_Deva",
+  "confidence": 0.9
+}
+2025-04-19 23:20:09,448 - debug - DEBUG - CHECKPOINT: api.chat:124 - API using detected language
+DATA: {
+  "preferred_language": "mar_Deva"
+}
+2025-04-19 23:20:09,448 - debug - DEBUG - CHECKPOINT: chatbot.process_message:49 - Starting process_message
+DATA: {
+  "message": "तुम्ही कसे काम करता",
+  "session_id": "1ea33ba3-65b1-4ab1-9760-ae32a2e3ae66",
+  "preferred_language": "mar_Deva"
+}
+2025-04-19 23:20:09,448 - debug - DEBUG - CHECKPOINT: chatbot.process_message:66 - Retrieved conversation history
+DATA: {
+  "conversation_length": 4
+}
+2025-04-19 23:20:09,448 - debug - DEBUG - CHECKPOINT: chatbot.process_message:69 - Before language detection
+DATA: {
+  "message": "तुम्ही कसे काम करता"
+}
+2025-04-19 23:20:09,463 - debug - DEBUG - CHECKPOINT: language_detection.detect:148 - Starting language detection
+DATA: {
+  "text": "तुम्ही कसे काम करता"
+}
+2025-04-19 23:20:09,464 - debug - DEBUG - CHECKPOINT: language_detection.detect:159 - Cleaned text for detection
+DATA: {
+  "cleaned_text": "तुम्ही कसे काम करता"
+}
+2025-04-19 23:20:09,464 - debug - DEBUG - CHECKPOINT: language_detection.detect:162 - Before script detection
+DATA: {
+  "cleaned_text": "तुम्ही कसे काम करता"
+}
+2025-04-19 23:20:09,464 - debug - DEBUG - CHECKPOINT: language_detection.detect:164 - After script detection
+DATA: {
+  "script_lang": "mar_Deva"
+}
+2025-04-19 23:20:09,464 - debug - DEBUG - CHECKPOINT: language_detection.detect:168 - Using script-based detection result
+DATA: {
+  "language": "mar_Deva",
+  "confidence": 0.9
+}
+2025-04-19 23:20:09,464 - debug - DEBUG - CHECKPOINT: chatbot.process_message:72 - After language detection
+DATA: {
+  "detected_lang": "mar_Deva",
+  "confidence": 0.9
+}
+2025-04-19 23:20:09,464 - debug - DEBUG - CHECKPOINT: chatbot.process_message:86 - Using preferred language
+DATA: {
+  "user_lang": "mar_Deva"
+}
+2025-04-19 23:20:09,464 - debug - DEBUG - CHECKPOINT: chatbot.process_message:97 - Final language selection
+DATA: {
+  "user_lang": "mar_Deva",
+  "detected_lang": "mar_Deva",
+  "preferred_language": "mar_Deva"
+}
+2025-04-19 23:20:09,464 - debug - DEBUG - CHECKPOINT: chatbot.process_message:107 - Before translation to English
+DATA: {
+  "message": "तुम्ही कसे काम करता",
+  "source_lang": "mar_Deva"
+}
+2025-04-19 23:20:09,464 - debug - DEBUG - CHECKPOINT: translation.translate_to_english:233 - Starting translation to English
+DATA: {
+  "text": "तुम्ही कसे काम करता",
+  "source_lang": "mar_Deva"
+}
+2025-04-19 23:20:10,780 - debug - DEBUG - CHECKPOINT: translation.translate_to_english:240 - Successful translation to English
+DATA: {
+  "result": "How do you work?"
+}
+2025-04-19 23:20:10,782 - debug - DEBUG - CHECKPOINT: chatbot.process_message:114 - After translation to English
+DATA: {
+  "english_message": "How do you work?"
+}
+2025-04-19 23:20:10,782 - debug - DEBUG - CHECKPOINT: chatbot.process_message:131 - Added user message to history
+DATA: {
+  "role": "user",
+  "content": "तुम्ही कसे काम करता",
+  "language": "mar_Deva",
+  "english_content": "How do you work?",
+  "timestamp": 1745085010.7828023
+}
+2025-04-19 23:20:10,782 - debug - DEBUG - CHECKPOINT: chatbot.process_message:135 - Before generating response
+DATA: {
+  "english_message": "How do you work?",
+  "conversation_length": 5
+}
+2025-04-19 23:20:10,782 - debug - DEBUG - CHECKPOINT: chatbot._generate_response:234 - Checking for non-English phrases
+DATA: {
+  "message": "How do you work?"
+}
+2025-04-19 23:20:10,782 - debug - DEBUG - CHECKPOINT: chatbot.process_message:141 - After generating response
+DATA: {
+  "english_response": "I'm sorry, I didn't understand that. Could you please rephrase?"
+}
+2025-04-19 23:20:10,782 - debug - DEBUG - CHECKPOINT: chatbot.process_message:147 - Before translating response from English
+DATA: {
+  "english_response": "I'm sorry, I didn't understand that. Could you please rephrase?",
+  "target_lang": "mar_Deva"
+}
+2025-04-19 23:20:10,782 - debug - DEBUG - CHECKPOINT: translation.translate_from_english:296 - Starting translation from English
+DATA: {
+  "text": "I'm sorry, I didn't understand that. Could you please rephrase?",
+  "target_lang": "mar_Deva"
+}
+2025-04-19 23:20:14,465 - debug - DEBUG - CHECKPOINT: translation.translate_from_english:303 - Successful translation from English
+DATA: {
+  "result": "मला माफ करा, मला ते समजले नाही. तुम्ही कृपया ते पुन्हा मांडू शकता का?"
+}
+2025-04-19 23:20:14,465 - debug - DEBUG - CHECKPOINT: chatbot.process_message:154 - After translating response from English
+DATA: {
+  "response_content": "मला माफ करा, मला ते समजले नाही. तुम्ही कृपया ते पुन्हा मांडू शकता का?"
+}
+2025-04-19 23:20:14,465 - debug - DEBUG - CHECKPOINT: chatbot.process_message:158 - Before cultural adaptation
+DATA: {
+  "response_content": "मला माफ करा, मला ते समजले नाही. तुम्ही कृपया ते पुन्हा मांडू शकता का?"
+}
+2025-04-19 23:20:14,465 - debug - DEBUG - CHECKPOINT: chatbot.process_message:161 - After cultural adaptation
+DATA: {
+  "response_content": "मला माफ करा, मला ते समजले नाही. तुम्ही कृपया ते पुन्हा मांडू शकता का?"
+}
+2025-04-19 23:20:14,465 - debug - DEBUG - CHECKPOINT: chatbot.process_message:178 - Added bot response to history
+DATA: {
+  "role": "assistant",
+  "content": "मला माफ करा, मला ते समजले नाही. तुम्ही कृपया ते पुन्हा मांडू शकता का?",
+  "language": "mar_Deva",
+  "english_content": "I'm sorry, I didn't understand that. Could you please rephrase?",
+  "timestamp": 1745085014.4658232
+}
+2025-04-19 23:20:14,465 - debug - DEBUG - CHECKPOINT: chatbot.process_message:203 - Completed process_message
+DATA: {
+  "session_id": "1ea33ba3-65b1-4ab1-9760-ae32a2e3ae66",
+  "message": "मला माफ करा, मला ते समजले नाही. तुम्ही कृपया ते पुन्हा मांडू शकता का?",
+  "detected_language": "mar_Deva",
+  "language_confidence": 0.9,
+  "user_language": "mar_Deva",
+  "english_message": "How do you work?",
+  "english_response": "I'm sorry, I didn't understand that. Could you please rephrase?"
+}
+2025-04-19 23:20:14,482 - debug - DEBUG - CHECKPOINT: api.chat:136 - API processed message
+DATA: {
+  "session_id": "1ea33ba3-65b1-4ab1-9760-ae32a2e3ae66",
+  "message": "मला माफ करा, मला ते समजले नाही. तुम्ही कृपया ते पुन्हा मांडू शकता का?",
+  "detected_language": "mar_Deva",
+  "language_confidence": 0.9,
+  "user_language": "mar_Deva",
+  "english_message": "How do you work?",
+  "english_response": "I'm sorry, I didn't understand that. Could you please rephrase?"
+}
+2025-04-19 23:20:30,794 - debug - DEBUG - CHECKPOINT: api.chat:101 - API received chat request
+DATA: {
+  "message": "how do you work",
+  "session_id": "1ea33ba3-65b1-4ab1-9760-ae32a2e3ae66",
+  "language": "eng_Latn"
+}
+2025-04-19 23:20:30,831 - debug - DEBUG - CHECKPOINT: language_detection.detect:148 - Starting language detection
+DATA: {
+  "text": "how do you work"
+}
+2025-04-19 23:20:30,831 - debug - DEBUG - CHECKPOINT: language_detection.detect:159 - Cleaned text for detection
+DATA: {
+  "cleaned_text": "how do you work"
+}
+2025-04-19 23:20:30,831 - debug - DEBUG - CHECKPOINT: language_detection.detect:162 - Before script detection
+DATA: {
+  "cleaned_text": "how do you work"
+}
+2025-04-19 23:20:30,831 - debug - DEBUG - CHECKPOINT: language_detection.detect:164 - After script detection
+DATA: {
+  "script_lang": "eng_Latn"
+}
+2025-04-19 23:20:30,841 - debug - DEBUG - CHECKPOINT: language_detection.detect:168 - Using script-based detection result
+DATA: {
+  "language": "eng_Latn",
+  "confidence": 0.9
+}
+2025-04-19 23:20:30,841 - debug - DEBUG - CHECKPOINT: api.chat:114 - API detected language
+DATA: {
+  "detected_lang": "eng_Latn",
+  "confidence": 0.9
+}
+2025-04-19 23:20:30,841 - debug - DEBUG - CHECKPOINT: chatbot.process_message:49 - Starting process_message
+DATA: {
+  "message": "how do you work",
+  "session_id": "1ea33ba3-65b1-4ab1-9760-ae32a2e3ae66",
+  "preferred_language": "eng_Latn"
+}
+2025-04-19 23:20:30,844 - debug - DEBUG - CHECKPOINT: chatbot.process_message:66 - Retrieved conversation history
+DATA: {
+  "conversation_length": 6
+}
+2025-04-19 23:20:30,844 - debug - DEBUG - CHECKPOINT: chatbot.process_message:69 - Before language detection
+DATA: {
+  "message": "how do you work"
+}
+2025-04-19 23:20:30,849 - debug - DEBUG - CHECKPOINT: language_detection.detect:148 - Starting language detection
+DATA: {
+  "text": "how do you work"
+}
+2025-04-19 23:20:30,849 - debug - DEBUG - CHECKPOINT: language_detection.detect:159 - Cleaned text for detection
+DATA: {
+  "cleaned_text": "how do you work"
+}
+2025-04-19 23:20:30,849 - debug - DEBUG - CHECKPOINT: language_detection.detect:162 - Before script detection
+DATA: {
+  "cleaned_text": "how do you work"
+}
+2025-04-19 23:20:30,856 - debug - DEBUG - CHECKPOINT: language_detection.detect:164 - After script detection
+DATA: {
+  "script_lang": "eng_Latn"
+}
+2025-04-19 23:20:30,856 - debug - DEBUG - CHECKPOINT: language_detection.detect:168 - Using script-based detection result
+DATA: {
+  "language": "eng_Latn",
+  "confidence": 0.9
+}
+2025-04-19 23:20:30,856 - debug - DEBUG - CHECKPOINT: chatbot.process_message:72 - After language detection
+DATA: {
+  "detected_lang": "eng_Latn",
+  "confidence": 0.9
+}
+2025-04-19 23:20:30,856 - debug - DEBUG - CHECKPOINT: chatbot.process_message:86 - Using preferred language
+DATA: {
+  "user_lang": "eng_Latn"
+}
+2025-04-19 23:20:30,864 - debug - DEBUG - CHECKPOINT: chatbot.process_message:97 - Final language selection
+DATA: {
+  "user_lang": "eng_Latn",
+  "detected_lang": "eng_Latn",
+  "preferred_language": "eng_Latn"
+}
+2025-04-19 23:20:30,867 - debug - DEBUG - CHECKPOINT: chatbot.process_message:131 - Added user message to history
+DATA: {
+  "role": "user",
+  "content": "how do you work",
+  "language": "eng_Latn",
+  "english_content": "how do you work",
+  "timestamp": 1745085030.8671896
+}
+2025-04-19 23:20:30,869 - debug - DEBUG - CHECKPOINT: chatbot.process_message:135 - Before generating response
+DATA: {
+  "english_message": "how do you work",
+  "conversation_length": 7
+}
+2025-04-19 23:20:30,869 - debug - DEBUG - CHECKPOINT: chatbot._generate_response:234 - Checking for non-English phrases
+DATA: {
+  "message": "how do you work"
+}
+2025-04-19 23:20:30,870 - debug - DEBUG - CHECKPOINT: chatbot.process_message:141 - After generating response
+DATA: {
+  "english_response": "I'm sorry, I didn't understand that. Could you please rephrase?"
+}
+2025-04-19 23:20:30,874 - debug - DEBUG - CHECKPOINT: chatbot.process_message:178 - Added bot response to history
+DATA: {
+  "role": "assistant",
+  "content": "I'm sorry, I didn't understand that. Could you please rephrase?",
+  "language": "eng_Latn",
+  "english_content": "I'm sorry, I didn't understand that. Could you please rephrase?",
+  "timestamp": 1745085030.8741882
+}
+2025-04-19 23:20:30,875 - debug - DEBUG - CHECKPOINT: chatbot.process_message:203 - Completed process_message
+DATA: {
+  "session_id": "1ea33ba3-65b1-4ab1-9760-ae32a2e3ae66",
+  "message": "I'm sorry, I didn't understand that. Could you please rephrase?",
+  "detected_language": "eng_Latn",
+  "language_confidence": 0.9,
+  "user_language": "eng_Latn",
+  "english_message": "how do you work",
+  "english_response": "I'm sorry, I didn't understand that. Could you please rephrase?"
+}
+2025-04-19 23:20:30,879 - debug - DEBUG - CHECKPOINT: api.chat:136 - API processed message
+DATA: {
+  "session_id": "1ea33ba3-65b1-4ab1-9760-ae32a2e3ae66",
+  "message": "I'm sorry, I didn't understand that. Could you please rephrase?",
+  "detected_language": "eng_Latn",
+  "language_confidence": 0.9,
+  "user_language": "eng_Latn",
+  "english_message": "how do you work",
+  "english_response": "I'm sorry, I didn't understand that. Could you please rephrase?"
+}
+2025-04-19 23:21:19,008 - debug - DEBUG - CHECKPOINT: api.chat:101 - API received chat request
+DATA: {
+  "message": "তাজমহল সম্পর্কে বলো।",
+  "session_id": "1ea33ba3-65b1-4ab1-9760-ae32a2e3ae66",
+  "language": "eng_Latn"
+}
+2025-04-19 23:21:19,071 - debug - DEBUG - CHECKPOINT: language_detection.detect:148 - Starting language detection
+DATA: {
+  "text": "তাজমহল সম্পর্কে বলো।"
+}
+2025-04-19 23:21:19,079 - debug - DEBUG - CHECKPOINT: language_detection.detect:159 - Cleaned text for detection
+DATA: {
+  "cleaned_text": "তাজমহল সম্পর্কে বলো।"
+}
+2025-04-19 23:21:19,079 - debug - DEBUG - CHECKPOINT: language_detection.detect:162 - Before script detection
+DATA: {
+  "cleaned_text": "তাজমহল সম্পর্কে বলো।"
+}
+2025-04-19 23:21:19,086 - debug - DEBUG - CHECKPOINT: language_detection.detect:164 - After script detection
+DATA: {
+  "script_lang": "ben_Beng"
+}
+2025-04-19 23:21:19,101 - debug - DEBUG - CHECKPOINT: language_detection.detect:168 - Using script-based detection result
+DATA: {
+  "language": "ben_Beng",
+  "confidence": 0.9
+}
+2025-04-19 23:21:19,105 - debug - DEBUG - CHECKPOINT: api.chat:114 - API detected language
+DATA: {
+  "detected_lang": "ben_Beng",
+  "confidence": 0.9
+}
+2025-04-19 23:21:19,111 - debug - DEBUG - CHECKPOINT: api.chat:124 - API using detected language
+DATA: {
+  "preferred_language": "ben_Beng"
+}
+2025-04-19 23:21:19,119 - debug - DEBUG - CHECKPOINT: chatbot.process_message:49 - Starting process_message
+DATA: {
+  "message": "তাজমহল সম্পর্কে বলো।",
+  "session_id": "1ea33ba3-65b1-4ab1-9760-ae32a2e3ae66",
+  "preferred_language": "ben_Beng"
+}
+2025-04-19 23:21:19,119 - debug - DEBUG - CHECKPOINT: chatbot.process_message:66 - Retrieved conversation history
+DATA: {
+  "conversation_length": 8
+}
+2025-04-19 23:21:19,119 - debug - DEBUG - CHECKPOINT: chatbot.process_message:69 - Before language detection
+DATA: {
+  "message": "তাজমহল সম্পর্কে বলো।"
+}
+2025-04-19 23:21:19,119 - debug - DEBUG - CHECKPOINT: language_detection.detect:148 - Starting language detection
+DATA: {
+  "text": "তাজমহল সম্পর্কে বলো।"
+}
+2025-04-19 23:21:19,126 - debug - DEBUG - CHECKPOINT: language_detection.detect:159 - Cleaned text for detection
+DATA: {
+  "cleaned_text": "তাজমহল সম্পর্কে বলো।"
+}
+2025-04-19 23:21:19,126 - debug - DEBUG - CHECKPOINT: language_detection.detect:162 - Before script detection
+DATA: {
+  "cleaned_text": "তাজমহল সম্পর্কে বলো।"
+}
+2025-04-19 23:21:19,203 - debug - DEBUG - CHECKPOINT: language_detection.detect:164 - After script detection
+DATA: {
+  "script_lang": "ben_Beng"
+}
+2025-04-19 23:21:19,203 - debug - DEBUG - CHECKPOINT: language_detection.detect:168 - Using script-based detection result
+DATA: {
+  "language": "ben_Beng",
+  "confidence": 0.9
+}
+2025-04-19 23:21:19,203 - debug - DEBUG - CHECKPOINT: chatbot.process_message:72 - After language detection
+DATA: {
+  "detected_lang": "ben_Beng",
+  "confidence": 0.9
+}
+2025-04-19 23:21:19,208 - debug - DEBUG - CHECKPOINT: chatbot.process_message:86 - Using preferred language
+DATA: {
+  "user_lang": "ben_Beng"
+}
+2025-04-19 23:21:19,209 - debug - DEBUG - CHECKPOINT: chatbot.process_message:97 - Final language selection
+DATA: {
+  "user_lang": "ben_Beng",
+  "detected_lang": "ben_Beng",
+  "preferred_language": "ben_Beng"
+}
+2025-04-19 23:21:19,210 - debug - DEBUG - CHECKPOINT: chatbot.process_message:107 - Before translation to English
+DATA: {
+  "message": "তাজমহল সম্পর্কে বলো।",
+  "source_lang": "ben_Beng"
+}
+2025-04-19 23:21:19,210 - debug - DEBUG - CHECKPOINT: translation.translate_to_english:233 - Starting translation to English
+DATA: {
+  "text": "তাজমহল সম্পর্কে বলো।",
+  "source_lang": "ben_Beng"
+}
+2025-04-19 23:21:21,250 - debug - DEBUG - CHECKPOINT: translation.translate_to_english:240 - Successful translation to English
+DATA: {
+  "result": "Tell me about the Taj Mahal."
+}
+2025-04-19 23:21:21,250 - debug - DEBUG - CHECKPOINT: chatbot.process_message:114 - After translation to English
+DATA: {
+  "english_message": "Tell me about the Taj Mahal."
+}
+2025-04-19 23:21:21,266 - debug - DEBUG - CHECKPOINT: chatbot.process_message:131 - Added user message to history
+DATA: {
+  "role": "user",
+  "content": "তাজমহল সম্পর্কে বলো।",
+  "language": "ben_Beng",
+  "english_content": "Tell me about the Taj Mahal.",
+  "timestamp": 1745085081.2663987
+}
+2025-04-19 23:21:21,266 - debug - DEBUG - CHECKPOINT: chatbot.process_message:135 - Before generating response
+DATA: {
+  "english_message": "Tell me about the Taj Mahal.",
+  "conversation_length": 9
+}
+2025-04-19 23:21:21,282 - debug - DEBUG - CHECKPOINT: chatbot._generate_response:234 - Checking for non-English phrases
+DATA: {
+  "message": "Tell me about the Taj Mahal."
+}
+2025-04-19 23:21:21,298 - debug - DEBUG - CHECKPOINT: chatbot.process_message:141 - After generating response
+DATA: {
+  "english_response": "I'm sorry, I didn't understand that. Could you please rephrase?"
+}
+2025-04-19 23:21:21,298 - debug - DEBUG - CHECKPOINT: chatbot.process_message:147 - Before translating response from English
+DATA: {
+  "english_response": "I'm sorry, I didn't understand that. Could you please rephrase?",
+  "target_lang": "ben_Beng"
+}
+2025-04-19 23:21:21,314 - debug - DEBUG - CHECKPOINT: translation.translate_from_english:296 - Starting translation from English
+DATA: {
+  "text": "I'm sorry, I didn't understand that. Could you please rephrase?",
+  "target_lang": "ben_Beng"
+}
+2025-04-19 23:21:26,413 - debug - DEBUG - CHECKPOINT: translation.translate_from_english:303 - Successful translation from English
+DATA: {
+  "result": "দুঃখিত, আমি এটা বুঝতে পারিনি, আপনি কি দয়া করে এটি পুনরায় বানান করতে পারেন?"
+}
+2025-04-19 23:21:26,413 - debug - DEBUG - CHECKPOINT: chatbot.process_message:154 - After translating response from English
+DATA: {
+  "response_content": "দুঃখিত, আমি এটা বুঝতে পারিনি, আপনি কি দয়া করে এটি পুনরায় বানান করতে পারেন?"
+}
+2025-04-19 23:21:26,429 - debug - DEBUG - CHECKPOINT: chatbot.process_message:158 - Before cultural adaptation
+DATA: {
+  "response_content": "দুঃখিত, আমি এটা বুঝতে পারিনি, আপনি কি দয়া করে এটি পুনরায় বানান করতে পারেন?"
+}
+2025-04-19 23:21:26,429 - debug - DEBUG - CHECKPOINT: chatbot.process_message:161 - After cultural adaptation
+DATA: {
+  "response_content": "দুঃখিত, আমি এটা বুঝতে পারিনি, আপনি কি দয়া করে এটি পুনরায় বানান করতে পারেন?"
+}
+2025-04-19 23:21:26,429 - debug - DEBUG - CHECKPOINT: chatbot.process_message:178 - Added bot response to history
+DATA: {
+  "role": "assistant",
+  "content": "দুঃখিত, আমি এটা বুঝতে পারিনি, আপনি কি দয়া করে এটি পুনরায় বানান করতে পারেন?",
+  "language": "ben_Beng",
+  "english_content": "I'm sorry, I didn't understand that. Could you please rephrase?",
+  "timestamp": 1745085086.4294527
+}
+2025-04-19 23:21:26,429 - debug - DEBUG - CHECKPOINT: chatbot.process_message:203 - Completed process_message
+DATA: {
+  "session_id": "1ea33ba3-65b1-4ab1-9760-ae32a2e3ae66",
+  "message": "দুঃখিত, আমি এটা বুঝতে পারিনি, আপনি কি দয়া করে এটি পুনরায় বানান করতে পারেন?",
+  "detected_language": "ben_Beng",
+  "language_confidence": 0.9,
+  "user_language": "ben_Beng",
+  "english_message": "Tell me about the Taj Mahal.",
+  "english_response": "I'm sorry, I didn't understand that. Could you please rephrase?"
+}
+2025-04-19 23:21:26,429 - debug - DEBUG - CHECKPOINT: api.chat:136 - API processed message
+DATA: {
+  "session_id": "1ea33ba3-65b1-4ab1-9760-ae32a2e3ae66",
+  "message": "দুঃখিত, আমি এটা বুঝতে পারিনি, আপনি কি দয়া করে এটি পুনরায় বানান করতে পারেন?",
+  "detected_language": "ben_Beng",
+  "language_confidence": 0.9,
+  "user_language": "ben_Beng",
+  "english_message": "Tell me about the Taj Mahal.",
+  "english_response": "I'm sorry, I didn't understand that. Could you please rephrase?"
+}

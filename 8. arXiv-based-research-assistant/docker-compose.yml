@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data_storage:/app/data_storage
+      - ./models:/app/models
+      - ./vector_db:/app/vector_db
+      - ./logs:/app/logs
+      - ./conversations:/app/conversations
+    environment:
+      - EMBEDDING_DEVICE=cpu  # Set to cpu for Docker, change to cuda if using GPU
+      - API_HOST=0.0.0.0
+      - API_PORT=8000
+    command: python run_api.py --host 0.0.0.0 --port 8000
+    restart: unless-stopped
+
+  frontend:
+    image: node:18-alpine
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+    ports:
+      - "3000:3000"
+    command: sh -c "npm install && npm run dev -- --host 0.0.0.0"
+    depends_on:
+      - api
+    restart: unless-stopped

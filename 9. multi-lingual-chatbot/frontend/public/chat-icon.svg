@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Chat Icon</title>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M12,2 C17.5228,2 22,6.47715 22,12 C22,17.5228 17.5228,22 12,22 C10.3596,22 8.77747,21.6039 7.35449,20.8536 L3.70711,21.7071 C3.0718,21.8946 2.40573,21.3284 2.59325,20.6931 L3.44695,17.0456 C2.69665,15.6226 2.3,13.8473 2.3,12 C2.3,6.47715 6.77715,2 12,2 Z" fill="#4a6fa5" fill-rule="nonzero"></path>
+        <circle fill="#FFFFFF" cx="7" cy="12" r="1"></circle>
+        <circle fill="#FFFFFF" cx="12" cy="12" r="1"></circle>
+        <circle fill="#FFFFFF" cx="17" cy="12" r="1"></circle>
+    </g>
+</svg>

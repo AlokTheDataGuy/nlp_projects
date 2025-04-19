@@ -1,0 +1,82 @@
+:root {
+  --primary-color: #4a6fa5;
+  --secondary-color: #e9e9eb;
+  --accent-color: #f8d7da;
+  --text-color: #333;
+  --light-text: #666;
+  --error-color: #e74c3c;
+  --success-color: #2ecc71;
+  --border-color: #ddd;
+  --background-color: #f5f5f5;
+  --card-background: #ffffff;
+  --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --border-radius: 10px;
+  --transition: all 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: var(--primary-color);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+input, select {
+  padding: 10px 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(74, 111, 165, 0.2);
+}
+
+@media (max-width: 768px) {
+  button, input, select {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+}
