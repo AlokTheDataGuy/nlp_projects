@@ -7,7 +7,7 @@ const LoadingSpinner = () => {
         <div className="spinner-inner"></div>
       </div>
       <p className="loading-text">Generating summary...</p>
-      <p className="loading-subtext">This may take a moment as we analyze your text</p>
+      <p className="loading-subtext">This may take a moment as we process and analyze your document</p>
     </div>
   );
 };

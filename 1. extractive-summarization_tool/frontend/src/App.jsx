@@ -4,6 +4,7 @@ import FileUpload from './components/FileUpload';
 import SummaryControls from './components/SummaryControls';
 import SummaryResult from './components/SummaryResult';
 import LoadingSpinner from './components/LoadingSpinner';
+import ErrorMessage from './components/ErrorMessage';
 
 function App() {
   const [file, setFile] = useState(null);
@@ -11,6 +12,7 @@ function App() {
   const [summary, setSummary] = useState('');
   const [loading, setLoading] = useState(false);
   const [downloadInfo, setDownloadInfo] = useState(null);
+  const [error, setError] = useState('');
   const [settings, setSettings] = useState({
     ratio: 0.3,
     min: 3,
@@ -22,6 +24,7 @@ function App() {
     setFileName(selectedFile ? selectedFile.name : '');
     setSummary('');
     setDownloadInfo(null);
+    setError('');
   };
 
   const handleSettingsChange = (newSettings) => {
@@ -32,6 +35,7 @@ function App() {
     if (!file) return;
 
     setLoading(true);
+    setError('');
     const formData = new FormData();
     formData.append('file', file);
     formData.append('ratio', settings.ratio);
@@ -45,7 +49,7 @@ function App() {
       });
 
       const data = await response.json();
-      
+
       if (data.success) {
         setSummary(data.summary);
         setDownloadInfo({
@@ -53,11 +57,11 @@ function App() {
           downloadName: data.download_name
         });
       } else {
-        alert(data.error || 'Error generating summary');
+        setError(data.error || 'Error generating summary');
       }
     } catch (error) {
       console.error('Error:', error);
-      alert('Failed to connect to the server');
+      setError('Failed to connect to the server. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -65,7 +69,7 @@ function App() {
 
   const handleDownload = () => {
     if (!downloadInfo) return;
-    
+
     window.location.href = `http://localhost:5000/api/download/${encodeURIComponent(downloadInfo.filePath)}/${encodeURIComponent(downloadInfo.downloadName)}`;
   };
 
@@ -75,28 +79,35 @@ function App() {
         <div className="container">
           <h1 className="app-title">AI Text Summarizer</h1>
           <p className="app-description">
-            Upload your text file and get an intelligent summary powered by BERT
+            Upload your text or PDF file and get an intelligent summary powered by BERT
           </p>
-          
+
           <div className="card">
-            <FileUpload 
-              onFileChange={handleFileChange} 
-              fileName={fileName} 
+            <FileUpload
+              onFileChange={handleFileChange}
+              fileName={fileName}
             />
-            
-            <SummaryControls 
+
+            <SummaryControls
               settings={settings}
               onSettingsChange={handleSettingsChange}
               onSubmit={handleSubmit}
               disabled={!file || loading}
             />
-            
+
+            {error && (
+              <ErrorMessage
+                message={error}
+                onDismiss={() => setError('')}
+              />
+            )}
+
             {loading ? (
               <LoadingSpinner />
             ) : (
               summary && (
-                <SummaryResult 
-                  summary={summary} 
+                <SummaryResult
+                  summary={summary}
                   onDownload={handleDownload}
                 />
               )

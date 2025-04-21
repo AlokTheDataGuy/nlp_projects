@@ -19,13 +19,17 @@ const FileUpload = ({ onFileChange, fileName }) => {
     e.preventDefault();
     e.stopPropagation();
     e.currentTarget.classList.remove('dragover');
-    
+
     if (e.dataTransfer.files && e.dataTransfer.files[0]) {
       const file = e.dataTransfer.files[0];
-      if (file.type === 'text/plain') {
+      const fileType = file.type;
+      const fileExtension = file.name.split('.').pop().toLowerCase();
+
+      if (fileType === 'text/plain' || fileType === 'application/pdf' ||
+          fileExtension === 'txt' || fileExtension === 'pdf') {
         onFileChange(file);
       } else {
-        alert('Please upload a .txt file');
+        alert('Please upload a .txt or .pdf file');
       }
     }
   };
@@ -43,8 +47,8 @@ const FileUpload = ({ onFileChange, fileName }) => {
   return (
     <div className="file-upload-section">
       <h2 className="section-title">Upload Document</h2>
-      
-      <div 
+
+      <div
         className="drop-area"
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
@@ -53,12 +57,12 @@ const FileUpload = ({ onFileChange, fileName }) => {
       >
         <input
           type="file"
-          accept=".txt"
+          accept=".txt,.pdf,application/pdf,text/plain"
           ref={fileInputRef}
           onChange={handleFileInputChange}
           style={{ display: 'none' }}
         />
-        
+
         <div className="drop-content">
           <div className="upload-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -67,22 +71,22 @@ const FileUpload = ({ onFileChange, fileName }) => {
               <line x1="12" y1="3" x2="12" y2="15"></line>
             </svg>
           </div>
-          
+
           {fileName ? (
             <p className="file-name">{fileName}</p>
           ) : (
             <>
-              <p className="drop-text">Drag & drop your text file here</p>
+              <p className="drop-text">Drag & drop your document here</p>
               <p className="drop-subtext">- or -</p>
               <button className="browse-button">Browse files</button>
-              <p className="file-type-hint">Only .txt files are supported</p>
+              <p className="file-type-hint">.txt and .pdf files are supported</p>
             </>
           )}
         </div>
       </div>
 
       {fileName && (
-        <button 
+        <button
           className="clear-button"
           onClick={() => onFileChange(null)}
         >
