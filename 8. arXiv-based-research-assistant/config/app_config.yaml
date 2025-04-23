@@ -1,0 +1,63 @@
+# Application Configuration
+
+# Server settings
+server:
+  host: "0.0.0.0"
+  port: 8000
+  debug: true
+  workers: 4
+
+# Database settings
+database:
+  mongodb:
+    uri: "mongodb+srv://alokdeep9925:i24IQ0SOiO8uSiE8@cluster0.ri0hkjy.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+    db_name: "arxiv_assistant"
+    collections:
+      papers: "papers"
+      embeddings: "embeddings"
+      conversations: "conversations"
+
+  vector_db:
+    type: "faiss"  # Options: faiss, milvus, etc.
+    index_path: "data/embeddings/faiss_index"
+    dimension: 768  # Dimension of the embeddings
+
+# Data pipeline settings
+data_pipeline:
+  arxiv:
+    categories: ["cs.AI", "cs.CL", "cs.LG", "cs.CV", "cs.NE"]  # Computer Science categories
+    max_papers: 10000
+    start_date: "2020-01-01"  # Only papers published after this date
+
+  processing:
+    chunk_size: 512
+    chunk_overlap: 50
+    batch_size: 32
+    max_workers: 4
+
+# Inference settings
+inference:
+  model:
+    name: "meta-llama/Meta-Llama-3-8B"
+    quantization: "4bit"  # Options: 4bit, 8bit, none
+    device: "cuda"  # Options: cuda, cpu
+    max_new_tokens: 512
+    temperature: 0.7
+    top_p: 0.9
+
+  rag:
+    framework: "langchain"  # Options: langchain, llama_index
+    retriever_type: "hybrid"  # Options: semantic, keyword, hybrid
+    num_documents: 5
+    reranking: true
+
+# Logging settings
+logging:
+  level: "INFO"
+  file: "logs/app.log"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+# UI settings
+ui:
+  theme: "light"  # Options: light, dark
+  max_history: 50  # Maximum number of messages to show in the chat history

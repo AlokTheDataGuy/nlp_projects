@@ -1,9 +1,10 @@
 # Data directories
 data/
-5. medical-q&a-chatbot-using-MedQuAD-dataset/MedQuAD/
+5. medical-qa-chatbot/MedQuAD/
 */data/
 **/data/
 9. multi-lingual-chatbot/nllb-200-distilled-600M/
+
 
 # Dataset files
 *.csv
