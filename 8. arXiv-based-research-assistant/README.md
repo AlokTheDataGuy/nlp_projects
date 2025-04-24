@@ -1,125 +1,121 @@
-# arXiv-based Research Assistant
+# ArXiv Expert Chatbot
 
-A domain-specific (Computer Science) expert chatbot using arXiv papers as a knowledge source, powered by fine-tuned Mistral 7B and retrieval-augmented generation.
+A chatbot that can discuss advanced topics in computer science, provide summaries of research papers, and explain complex concepts. The system can handle follow-up questions on complex topics and includes features for paper searching and concept visualization.
 
-## Overview
+## System Architecture
 
-This project creates an AI assistant that can answer questions about Computer Science research by leveraging arXiv papers. It uses a combination of:
+The ArXiv Expert Chatbot follows a hybrid architecture with the following components:
 
-- **Fine-tuned Mistral 7B**: A powerful language model fine-tuned on arXiv papers
-- **Retrieval-Augmented Generation (RAG)**: Enhances responses with relevant information from arXiv papers
-- **Vector Search**: Efficiently finds relevant papers based on semantic similarity
-- **Document Processing**: Extracts and processes information from research papers
+### 1. Frontend Layer
+- Web interface with chat functionality and visualization area
+- Built with React, TypeScript, and Material-UI
+- Features conversation history, paper reference display, and topic filtering
 
-## Key Components
+### 2. API Layer (FastAPI)
+- Endpoints for chat interaction, paper search, and concept visualization
+- Session management for multi-turn conversations
 
-1. **Data Pipeline**
-   - Paper Processor: Handles PDF extraction from arXiv dataset
-   - Text Extractor: Cleans and segments papers into sections
-   - Feature Generator: Identifies key entities, concepts, and relationships
-   - Embedding Creator: Generates embeddings using Sentence-Transformers' all-mpnet-base-v2
+### 3. Core Processing
+- Query Processor: Analyzes user queries, identifies key concepts, and determines query intent
+- Response Generator: Aggregates information from multiple sources and formats responses
 
-2. **Knowledge Base**
-   - Faiss: Open-source vector database for storing embeddings
-   - MongoDB Document Store: Stores paper metadata, content, and relationships
-   - Knowledge Graph: Optional component for concept relationships and domain taxonomy
+### 4. Knowledge Layer
+- ArXiv API integration for real-time paper retrieval
+- Local Knowledge Base (SQLite) for storing processed papers, summaries, and concepts
+- Vector Store (FAISS) for semantic search capabilities
+- Quantized LLM (Phi-3-mini-4k-instruct) for generating explanations
 
-3. **Inference Engine**
-   - Fine-tuned Mistral 7B: LLM model fine-tuned on arXiv papers
-   - RAG System: Retrieval-augmented generation using LangChain
-   - Context Manager: Handles context window optimization and document chunking
-   - Response Generator: Formats final responses with citations and explanations
-
-4. **Query Processor**
-   - Query Analyzer: Classifies questions and extracts key entities
-   - Conversation Manager: Maintains dialog context and handles follow-up questions
-   - Search Engine: Provides semantic and keyword search functionality
-
-5. **User Interface**
-   - Chat Interface: Main interaction point for questions and answers
-   - Search Interface: Allows direct paper searching and browsing
-   - Visualization Panel: Displays concept relationships, paper networks, etc.
-
-## Technical Stack
-
-| Component | Technology |
-|-----------|------------|
-| Base Language | Python 3.10+ |
-| LLM | Mistral 7B (fine-tuned) |
-| Embeddings | Sentence-Transformers all-mpnet-base-v2 |
-| Vector Database | Faiss |
-| Document Store | MongoDB |
-| Backend API | FastAPI |
-| Frontend | React + TypeScript |
-| Visualization | D3.js + React-Force-Graph |
-| Deployment | Docker + Docker Compose |
-| RAG Framework | LangChain |
+### 5. Background Processing
+- Processing Queue for managing resource-intensive tasks
+- Paper Processors for extracting concepts, generating summaries, and mapping relations
 
 ## Getting Started
 
 ### Prerequisites
-
-- Python 3.10+
-- Docker and Docker Compose
-- GPU with at least 8GB VRAM (for fine-tuning)
-- MongoDB
-- Node.js and npm (for UI development)
+- Python 3.8+ with conda environment
+- Node.js 14+ and npm
+- GPU with at least 4GB VRAM (recommended for LLM)
 
 ### Installation
 
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/arXiv-based-research-assistant.git
-   cd arXiv-based-research-assistant
-   ```
+```bash
+git clone <repository-url>
+cd arvix-bot
+```
 
-2. Install Python dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
+2. Set up the backend:
+```bash
+cd backend
+# Activate your conda environment
+conda activate arvix_bot
+# Run the application
+python run.py
+```
 
-3. Download arXiv papers:
-   ```bash
-   python scripts/download_papers.py --limit 100 --store
-   ```
+3. Set up the frontend:
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
-4. Process papers and generate embeddings:
-   ```bash
-   python scripts/process_papers.py --store
-   ```
-
-5. Fine-tune the Mistral 7B model on arXiv papers:
-   ```bash
-   bash scripts/run_finetune.sh
-   ```
-   This will fine-tune the model on the downloaded papers and save it to `models/mistral-7b-arxiv-finetuned`.
-
-6. Start the backend server:
-   ```bash
-   python scripts/run_server.py
-   ```
-
-7. In a separate terminal, start the frontend development server:
-   ```bash
-   cd ui
-   npm install
-   npm run dev
-   ```
-
-8. Access the UI at http://localhost:5173
+4. Open your browser and navigate to `http://localhost:5173`
 
 ## Usage
 
-1. Ask research questions through the chat interface
-2. Search for specific papers or topics
-3. Explore related concepts and papers through the visualization panel
+### Chat Interface
+- Ask questions about computer science research papers
+- Request explanations of complex concepts
+- Get summaries of research papers
+- Follow up with related questions
+
+### Paper Search
+- Search for papers on specific topics
+- View paper details including abstract, authors, and categories
+- Access links to the original papers on ArXiv
+
+### Concept Visualization
+- Explore concepts extracted from papers
+- View relationships between concepts
+- Understand how concepts are connected
+
+## Implementation Details
+
+### LLM Integration
+The system uses Phi-3-mini-4k-instruct (3.8B parameters) quantized to 4-bit precision to fit in 4GB VRAM. The model is loaded on demand to conserve resources.
+
+### Vector Search
+FAISS is used for efficient similarity search across paper content and concepts, enabling the system to find relevant information quickly.
+
+### Resource Management
+The system includes monitoring for RAM and GPU usage, with mechanisms to free resources when needed and process tasks in the background.
+
+## Required Libraries
+
+### Core Dependencies
+- **FastAPI**: Web framework for building the API
+- **SQLAlchemy**: ORM for database operations
+- **FAISS**: Vector similarity search library
+- **Transformers**: For working with the LLM
+- **Sentence-Transformers**: For generating embeddings
+- **Torch**: Deep learning framework with GPU support
+- **BitsAndBytes**: For model quantization
+
+### ArXiv Integration
+- **ArXiv**: Python wrapper for the ArXiv API
+- **PyMuPDF/pdf2image**: For processing PDF papers
+
+### NLP and Processing
+- **NLTK**: Natural language processing toolkit
+- **Spacy**: Advanced NLP library
+- **Scikit-learn**: For machine learning utilities
+
+### Visualization
+- **NetworkX**: For graph operations and concept relationships
+- **Plotly/Matplotlib**: For data visualization
+
+See `backend/requirements.txt` for the complete list with version specifications.
 
 ## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Acknowledgments
-
-- arXiv for providing access to research papers
-- Mistral AI for developing the Mistral 7B model
-- The open-source community for tools like LangChain, Faiss, and more
+[MIT License](LICENSE)
