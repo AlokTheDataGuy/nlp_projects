@@ -39,7 +39,7 @@ A medical question-answering chatbot that provides appropriate and relevant medi
 
 **Key Technologies**: FastAPI, React, Ollama (Meditron 7B, Llama 3.1 8B), MedQuAD Dataset, FAISS, Pandas, NumPy, Tailwind CSS, TypeScript
 
-### 6. Knowledge-Based Auto-Updater
+### 6. Auto Learn Bot
 An AI-powered system that monitors YouTube channels, extracts transcripts, identifies key insights, and allows users to query this information through a chatbot interface.
 
 **Key Technologies**: FastAPI, React, MongoDB, Pinecone, YouTube Data API, YouTube Transcript API, OpenAI GPT-4, LangChain, Pydantic
