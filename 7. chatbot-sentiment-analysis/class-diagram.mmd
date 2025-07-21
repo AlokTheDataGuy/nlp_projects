@@ -1,0 +1,81 @@
+classDiagram
+    class SentimentAnalyzer {
+        -model_name: str
+        -tokenizer
+        -model
+        -labels: list
+        +__init__()
+        +preprocess(text: str): str
+        +analyze(text: str): dict
+        +analyze_batch(texts: list): list
+        -_is_greeting(text: str): bool
+    }
+    
+    class ConversationManager {
+        -conversations: dict
+        -metrics: dict
+        -escalation_threshold: int
+        +__init__()
+        +add_message(conversation_id: str, role: str, content: str, sentiment: dict): void
+        +get_conversation_history(conversation_id: str): list
+        +check_escalation(conversation_id: str): bool
+        +get_metrics(): dict
+        +get_sentiment_history(conversation_id: str): list
+    }
+    
+    class ChatService {
+        -ollama_base_url: str
+        -model_name: str
+        +__init__(base_url: str, model: str)
+        +generate_response(prompt: str, system_prompt: str): str
+        -_create_prompt(user_message: str, sentiment: dict): str
+        -_create_system_prompt(sentiment: dict): str
+    }
+    
+    class Message {
+        +content: str
+        +conversation_id: str
+        +user_id: str
+        +metadata: dict
+    }
+    
+    class MessageResponse {
+        +conversation_id: str
+        +response: str
+        +sentiment: dict
+        +escalate: bool
+    }
+    
+    class ConversationMessage {
+        +role: str
+        +content: str
+        +timestamp: str
+        +sentiment: dict
+        +escalated: bool
+    }
+    
+    class Conversation {
+        +id: str
+        +messages: list
+        +metadata: dict
+    }
+    
+    class APIRouter {
+        +message_router
+        +metrics_router
+        +__init__()
+        +send_message(message: Message): MessageResponse
+        +get_conversation(conversation_id: str): Conversation
+        +get_metrics(): dict
+    }
+    
+    SentimentAnalyzer -- ChatService: provides sentiment to
+    ConversationManager -- SentimentAnalyzer: uses
+    ConversationManager -- ChatService: uses
+    ConversationManager -- ConversationMessage: manages
+    ConversationManager -- Conversation: manages
+    APIRouter -- Message: receives
+    APIRouter -- MessageResponse: returns
+    APIRouter -- ConversationManager: uses
+    Message <|-- ConversationMessage: extends
+    Conversation o-- ConversationMessage: contains

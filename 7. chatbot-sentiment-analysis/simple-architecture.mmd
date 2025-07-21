@@ -1,0 +1,51 @@
+graph TD
+    %% Main System Layers
+    subgraph "User Input Layer"
+        UserInput[User Input]
+        Preprocessing[Text Preprocessing]
+    end
+
+    subgraph "Sentiment Analysis Module"
+        SentimentModel[RoBERTa Sentiment Model]
+        SentimentClassification[Sentiment Classification]
+        SentimentHistory[Sentiment History Storage]
+    end
+
+    subgraph "Response Generation Layer"
+        ContextCreation[Context Creation with Sentiment]
+        LLMModel[Llama3.1:8b Model]
+        ResponseGeneration[Response Generation]
+    end
+
+    subgraph "Orchestration Layer"
+        FlowManagement[Flow Management]
+        EscalationHandling[Escalation Handling]
+        ContextTracking[Context Tracking]
+    end
+
+    %% Connections between layers
+    UserInput -->|User message| Preprocessing
+    Preprocessing -->|Cleaned text| SentimentModel
+    
+    SentimentModel -->|Raw scores| SentimentClassification
+    SentimentClassification -->|Classification| SentimentHistory
+    SentimentClassification -->|Sentiment data| ContextCreation
+    
+    ContextCreation -->|Prompt with sentiment| LLMModel
+    LLMModel -->|Generated text| ResponseGeneration
+    
+    SentimentHistory -->|Sentiment patterns| EscalationHandling
+    UserInput -->|Message flow| FlowManagement
+    ResponseGeneration -->|Response flow| FlowManagement
+    FlowManagement -->|Conversation state| ContextTracking
+    
+    %% Styling
+    classDef input fill:#C4E3FD,stroke:#333,stroke-width:1px;
+    classDef sentiment fill:#FFCCCB,stroke:#333,stroke-width:1px;
+    classDef response fill:#C3E6CB,stroke:#333,stroke-width:1px;
+    classDef orchestration fill:#FFF2CC,stroke:#333,stroke-width:1px;
+    
+    class UserInput,Preprocessing input;
+    class SentimentModel,SentimentClassification,SentimentHistory sentiment;
+    class ContextCreation,LLMModel,ResponseGeneration response;
+    class FlowManagement,EscalationHandling,ContextTracking orchestration;

@@ -1,0 +1,32 @@
+# CS Expert Chatbot Configuration
+
+llm:
+  model_name: "llama3:latest"  # or "mistral", "codellama"
+  fallback_model: "mistral"
+  temperature: 0.7
+  max_tokens: 1024
+  context_window: 4096
+  device: "cuda"  # If you have NVIDIA GPU
+
+
+rag:
+  chunk_size: 512
+  chunk_overlap: 50
+  top_k_papers: 5
+  similarity_threshold: 0.3
+  use_reranking: true
+
+nlp:
+  summarization_model: "facebook/bart-large-cnn"
+  qa_model: "deepset/roberta-base-squad2"
+  embedding_model: "all-MiniLM-L6-v2"
+
+data:
+  max_papers: 1000
+  categories: ["cs.AI", "cs.LG", "cs.CL", "cs.CV", "cs.DB"]
+  min_similarity: 0.2
+
+visualization:
+  max_concepts: 20
+  graph_layout: "spring"
+  color_scheme: "viridis"

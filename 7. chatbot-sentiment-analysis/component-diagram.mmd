@@ -1,0 +1,99 @@
+graph TB
+    %% Main Components
+    subgraph "Frontend (React)"
+        ReactApp[React Application]
+        subgraph "Components"
+            Header[Header Component]
+            ChatPage[Chat Page]
+            DashboardPage[Dashboard Page]
+            ChatMessage[Chat Message Component]
+            ChatInput[Chat Input Component]
+            SentimentIndicator[Sentiment Indicator]
+            SentimentTrend[Sentiment Trend Chart]
+        end
+        subgraph "Services"
+            ChatService[Chat Service]
+            MetricsService[Metrics Service]
+        end
+        subgraph "State Management"
+            MessageState[Message State]
+            SentimentState[Sentiment State]
+        end
+    end
+
+    subgraph "Backend (FastAPI)"
+        FastAPI[FastAPI Application]
+        subgraph "API Endpoints"
+            MessageAPI[Message API]
+            MetricsAPI[Metrics API]
+        end
+        subgraph "Services"
+            SentimentAnalyzer[Sentiment Analyzer]
+            ConversationManager[Conversation Manager]
+            LLMService[LLM Service]
+        end
+        subgraph "Models"
+            MessageModel[Message Model]
+            ConversationModel[Conversation Model]
+        end
+    end
+
+    subgraph "External Services"
+        HuggingFace[Hugging Face RoBERTa]
+        Ollama[Ollama Llama3.1:8b]
+    end
+
+    %% Connections
+    ReactApp --> Header
+    ReactApp --> ChatPage
+    ReactApp --> DashboardPage
+    
+    ChatPage --> ChatMessage
+    ChatPage --> ChatInput
+    ChatPage --> SentimentIndicator
+    ChatPage --> SentimentTrend
+    ChatPage --> ChatService
+    
+    DashboardPage --> MetricsService
+    
+    ChatService --> MessageState
+    ChatService --> SentimentState
+    
+    ChatService -->|HTTP Request| MessageAPI
+    MetricsService -->|HTTP Request| MetricsAPI
+    
+    MessageAPI --> ConversationManager
+    MetricsAPI --> ConversationManager
+    
+    ConversationManager --> MessageModel
+    ConversationManager --> ConversationModel
+    ConversationManager --> SentimentAnalyzer
+    ConversationManager --> LLMService
+    
+    SentimentAnalyzer -->|API Call| HuggingFace
+    LLMService -->|API Call| Ollama
+    
+    %% Data Flow
+    ChatInput -->|User Message| ChatService
+    ChatService -->|Send Message| MessageAPI
+    MessageAPI -->|Process| ConversationManager
+    ConversationManager -->|Analyze Sentiment| SentimentAnalyzer
+    SentimentAnalyzer -->|Sentiment Result| ConversationManager
+    ConversationManager -->|Generate Response| LLMService
+    LLMService -->|LLM Response| ConversationManager
+    ConversationManager -->|Complete Response| MessageAPI
+    MessageAPI -->|Response Data| ChatService
+    ChatService -->|Update| MessageState
+    ChatService -->|Update| SentimentState
+    MessageState -->|Render| ChatMessage
+    SentimentState -->|Render| SentimentIndicator
+    SentimentState -->|Render| SentimentTrend
+    
+    %% Styling
+    classDef frontend fill:#61dafb,stroke:#333,stroke-width:1px;
+    classDef backend fill:#90ee90,stroke:#333,stroke-width:1px;
+    classDef external fill:#ff9966,stroke:#333,stroke-width:1px;
+    
+    class ReactApp,Header,ChatPage,DashboardPage,ChatMessage,ChatInput,SentimentIndicator,SentimentTrend,ChatService,MetricsService,MessageState,SentimentState frontend;
+    class FastAPI,MessageAPI,MetricsAPI,SentimentAnalyzer,ConversationManager,LLMService,MessageModel,ConversationModel backend;
+    class HuggingFace,Ollama external;

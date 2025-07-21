@@ -1,0 +1,38 @@
+sequenceDiagram
+    participant User
+    participant Frontend
+    participant Backend
+    participant SentimentModel
+    participant LLMModel
+    participant Database
+    
+    User->>Frontend: Enter message
+    Frontend->>Backend: POST /api/messages
+    Backend->>Backend: Preprocess text
+    Backend->>SentimentModel: Analyze sentiment
+    SentimentModel-->>Backend: Return sentiment classification
+    
+    alt Sentiment is negative
+        Backend->>Backend: Check for escalation pattern
+        alt Escalation needed
+            Backend->>Backend: Flag for escalation
+        end
+    end
+    
+    Backend->>LLMModel: Generate response with sentiment context
+    LLMModel-->>Backend: Return generated response
+    Backend->>Database: Store message, sentiment, and response
+    Backend-->>Frontend: Return response with sentiment data
+    
+    Frontend->>Frontend: Update chat interface
+    Frontend->>Frontend: Display sentiment indicator
+    Frontend->>Frontend: Update sentiment trend chart
+    
+    alt User navigates to dashboard
+        User->>Frontend: Navigate to dashboard
+        Frontend->>Backend: GET /api/metrics
+        Backend->>Database: Retrieve conversation metrics
+        Database-->>Backend: Return metrics data
+        Backend-->>Frontend: Return dashboard metrics
+        Frontend->>Frontend: Render dashboard visualizations
+    end
