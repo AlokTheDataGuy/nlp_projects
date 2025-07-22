@@ -1,0 +1,9 @@
+flask
+flask-cors
+torch
+transformers
+scikit-learn
+networkx
+numpy
+PyPDF2
+pdfplumber

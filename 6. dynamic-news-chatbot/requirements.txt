@@ -1,0 +1,12 @@
+# requirements.txt
+streamlit
+requests
+chromadb
+newspaper3k
+beautifulsoup4
+sentence-transformers
+python-dotenv
+schedule
+ollama
+langchain-community
+lxml[html_clean]
