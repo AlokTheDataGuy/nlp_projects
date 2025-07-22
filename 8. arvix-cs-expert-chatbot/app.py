@@ -60,8 +60,8 @@ class CSExpertApp:
             layout="wide",
             initial_sidebar_state="expanded",
             menu_items={
-                'Get Help': 'https://github.com/your-repo/cs-expert-chatbot',
-                'Report a bug': 'https://github.com/your-repo/cs-expert-chatbot/issues',
+                'Get Help': 'hhttps://github.com/AlokTheDataGuy/arXiv-cs-expert-chatbot',
+                'Report a bug': 'https://github.com/AlokTheDataGuy/arXiv-cs-expert-chatbot/issues',
                 'About': "CS Expert AI Assistant - Powered by Llama 3 + RAG"
             }
         )
@@ -78,6 +78,8 @@ class CSExpertApp:
                 -webkit-text-fill-color: transparent;
                 text-align: center;
                 margin-bottom: 2rem;
+                margin-top: 0rem;
+                padding: 0rem;
             }
             .chat-message {
                 padding: 1rem;
@@ -531,21 +533,148 @@ class CSExpertApp:
                 self._process_user_input(suggestion)
     
     def create_paper_search_interface(self):
-        """Create advanced paper search interface"""
-        st.header("🔍 Advanced Research Paper Search")
-        
+        """Create simplified paper search interface"""
+        st.header("🔍Paper Search")
+
         # Search controls
-        search_query, search_type = self._create_search_controls()
-        
-        # Advanced filters
-        year_filter, category_filter, min_similarity = self._create_search_filters()
-        
+        search_query = st.text_input(
+            "Search research papers:",
+            placeholder="e.g., transformer, machine learning, neural networks"
+        )
+
         # Process search
         if search_query:
-            self._process_search_query(
-                search_query, search_type, year_filter, 
-                category_filter, min_similarity
-            )
+            self._process_simple_search_query(search_query)
+
+    def _process_simple_search_query(self, search_query: str):
+        """Process search query with simplified logic"""
+        with st.spinner("🔍 Searching through research papers..."):
+            try:
+                # Check if RAG system is available
+                if not self.llm_engine or not self.llm_engine.rag_system:
+                    st.error("❌ Search system not available. Please check system initialization.")
+                    return
+
+                # Check if vector database is available
+                if not self.llm_engine.rag_system.collection:
+                    st.error("❌ Vector database not available. Please check ChromaDB setup.")
+                    return
+
+                # Perform search - get more results
+                results = self.llm_engine.rag_system.retrieve_relevant_papers(
+                    search_query, top_k=50
+                )
+
+                # Also do simple keyword search as fallback
+                keyword_results = self._simple_keyword_search(search_query)
+
+                # Combine results
+                all_results = results + keyword_results
+
+                # Remove duplicates based on title
+                seen_titles = set()
+                unique_results = []
+                for result in all_results:
+                    title = result.get('title', '').lower()
+                    if title not in seen_titles:
+                        seen_titles.add(title)
+                        unique_results.append(result)
+
+                # Display results
+                st.markdown(f"### 📊 Found {len(unique_results)} relevant papers")
+
+                if unique_results:
+                    self._display_simple_search_results(unique_results[:20])  # Show top 20
+                else:
+                    st.info("No papers found. Try different keywords like 'neural', 'learning', 'algorithm', etc.")
+
+            except Exception as e:
+                st.error(f"Search failed: {str(e)}")
+                import traceback
+                st.code(traceback.format_exc())
+
+    def _simple_keyword_search(self, search_query: str):
+        """Simple keyword-based search through papers"""
+        results = []
+        search_terms = search_query.lower().split()
+
+        try:
+            for paper in self.processor.papers:
+                # Search in title and abstract
+                title = paper.get('title', '').lower()
+                abstract = paper.get('abstract', '').lower()
+                text_to_search = f"{title} {abstract}"
+
+                # Count matching terms
+                matches = sum(1 for term in search_terms if term in text_to_search)
+
+                if matches > 0:
+                    # Calculate simple similarity based on term matches
+                    similarity = matches / len(search_terms)
+
+                    result = {
+                        'id': paper.get('id', ''),
+                        'title': paper.get('title', ''),
+                        'authors': paper.get('authors', []),
+                        'abstract': paper.get('abstract', ''),
+                        'categories': paper.get('categories', []),
+                        'published': paper.get('published', ''),
+                        'primary_category': paper.get('primary_category', ''),
+                        'similarity': similarity,
+                        'document': f"{paper.get('title', '')} {paper.get('abstract', '')}",
+                        'pdf_url': paper.get('pdf_url', '')
+                    }
+                    results.append(result)
+
+            # Sort by similarity
+            results.sort(key=lambda x: x['similarity'], reverse=True)
+            return results[:10]  # Return top 10 keyword matches
+
+        except Exception as e:
+            print(f"Keyword search error: {e}")
+            return []
+
+    def _display_simple_search_results(self, results):
+        """Display search results in a simple format"""
+        for i, result in enumerate(results, 1):
+            with st.expander(
+                f"{i}. {result['title']}",
+                expanded=False
+            ):
+                # Authors
+                authors = result.get('authors', [])
+                if isinstance(authors, list):
+                    authors_str = ', '.join(authors[:3])
+                    if len(authors) > 3:
+                        authors_str += " et al."
+                else:
+                    authors_str = str(authors)
+
+                st.write(f"**Authors:** {authors_str}")
+                st.write(f"**Published:** {result.get('published', 'Unknown')[:10]}")
+
+                # Categories
+                categories = result.get('categories', [])
+                if categories:
+                    st.write(f"**Categories:** {', '.join(categories[:3])}")
+
+                # Abstract
+                abstract = result.get('abstract', result.get('document', ''))
+                if abstract:
+                    # Clean up abstract
+                    if 'Abstract:' in abstract:
+                        abstract = abstract.split('Abstract:', 1)[1].strip()
+
+                    # Truncate if too long
+                    if len(abstract) > 500:
+                        abstract = abstract[:500] + "..."
+
+                    st.write(f"**Abstract:** {abstract}")
+
+                # PDF link if available
+                pdf_url = result.get('pdf_url')
+                if pdf_url:
+                    st.link_button("📄 View PDF", pdf_url)
     
     def _create_search_controls(self) -> Tuple[str, str]:
         """Create search input controls"""
@@ -584,28 +713,45 @@ class CSExpertApp:
         
         return year_filter, category_filter, min_similarity
     
-    def _process_search_query(self, search_query: str, search_type: str, 
-                            year_filter: Tuple[int, int], category_filter: List[str], 
+    def _process_search_query(self, search_query: str, search_type: str,
+                            year_filter: Tuple[int, int], category_filter: List[str],
                             min_similarity: float):
         """Process search query and display results"""
         with st.spinner("🔍 Searching through research papers..."):
             try:
+                # Check if RAG system is available
+                if not self.llm_engine or not self.llm_engine.rag_system:
+                    st.error("❌ Search system not available. Please check system initialization.")
+                    return
+
+                # Check if vector database is available
+                if not self.llm_engine.rag_system.collection:
+                    st.error("❌ Vector database not available. Please check ChromaDB setup.")
+                    return
+
                 # Perform search
                 results = self.llm_engine.rag_system.retrieve_relevant_papers(
                     search_query, top_k=20
                 )
-                
+
+                # Debug information
+                st.info(f"🔍 Raw search returned {len(results)} results")
+
                 # Apply filters
                 filtered_results = self._apply_search_filters(
                     results, year_filter, category_filter, min_similarity
                 )
-                
+
                 # Display results
                 st.markdown(f"### 📊 Found {len(filtered_results)} relevant papers")
                 self._display_search_results(filtered_results)
-                
+
             except Exception as e:
                 st.error(f"Search failed: {str(e)}")
+                st.error(f"Error details: {type(e).__name__}")
+                # Show more detailed error for debugging
+                import traceback
+                st.code(traceback.format_exc())
     
     def _apply_search_filters(self, results: List[Dict], year_filter: Tuple[int, int], 
                             category_filter: List[str], min_similarity: float) -> List[Dict]:
@@ -1004,7 +1150,7 @@ class CSExpertApp:
             '<h1 class="main-header">🤖 CS Expert AI Assistant</h1>', 
             unsafe_allow_html=True
         )
-        st.markdown("### Advanced Computer Science Research Assistant with Foundation LLM + RAG")
+        st.markdown("### CS Expert AI Assistant with Foundation LLM + RAG")
         
         # Load configuration and initialize system
         try:

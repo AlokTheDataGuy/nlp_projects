@@ -24,7 +24,7 @@ nlp:
 data:
   max_papers: 1000
   categories: ["cs.AI", "cs.LG", "cs.CL", "cs.CV", "cs.DB"]
-  min_similarity: 0.2
+  min_similarity: 0.1
 
 visualization:
   max_concepts: 20

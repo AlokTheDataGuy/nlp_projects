@@ -1,7 +1,6 @@
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 import chromadb
-from chromadb.config import Settings
 import uuid
 from typing import List, Dict, Any
 import yaml
@@ -22,12 +21,9 @@ class RAGSystem:
     def setup_vector_db(self):
         """Setup ChromaDB for efficient vector storage and retrieval"""
         try:
-            # Initialize ChromaDB client
-            self.chroma_client = chromadb.Client(Settings(
-                chroma_db_impl="duckdb+parquet",
-                persist_directory="./chroma_db"
-            ))
-            
+            # Initialize ChromaDB client with updated configuration
+            self.chroma_client = chromadb.PersistentClient(path="./chroma_db")
+
             # Create or get collection
             collection_name = "arxiv_papers"
             try:
@@ -39,7 +35,7 @@ class RAGSystem:
                     metadata={"description": "ArXiv CS papers for RAG"}
                 )
                 print(f"Created new ChromaDB collection: {collection_name}")
-                
+
         except Exception as e:
             print(f"Error setting up ChromaDB: {e}")
             self.chroma_client = None
@@ -90,44 +86,84 @@ class RAGSystem:
         """Retrieve relevant papers using vector similarity search"""
         if top_k is None:
             top_k = self.rag_config['top_k_papers']
-        
+
         if not self.collection:
+            print("Error: ChromaDB collection not available")
             return []
-        
+
         try:
+            # Check collection count
+            collection_count = self.collection.count()
+            print(f"Collection has {collection_count} documents")
+
+            if collection_count == 0:
+                print("Warning: Collection is empty")
+                return []
+
             # Generate query embedding
             query_embedding = self.embedding_model.encode([query])
-            
+            print(f"Generated query embedding with shape: {query_embedding.shape}")
+
             # Search in ChromaDB
             results = self.collection.query(
                 query_embeddings=query_embedding.tolist(),
-                n_results=top_k,
+                n_results=min(top_k, collection_count),  # Don't request more than available
                 include=['documents', 'metadatas', 'distances']
             )
-            
+
+            print(f"ChromaDB returned {len(results['ids'][0])} results")
+
             # Process results
             relevant_papers = []
+
+            # Find the range of distances to normalize properly
+            distances = [results['distances'][0][i] for i in range(len(results['ids'][0]))]
+            min_distance = min(distances)
+            max_distance = max(distances)
+            distance_range = max_distance - min_distance
+
+            print(f"Distance range: {min_distance:.4f} to {max_distance:.4f}, range: {distance_range:.4f}")
+
             for i in range(len(results['ids'][0])):
+                distance = results['distances'][0][i]
+
+                # Normalize distance to similarity score (0-1 range)
+                # Lower distance = higher similarity
+                if distance_range > 0.001:  # Avoid division by very small numbers
+                    # Normalize to 0-1 where 0 = max_distance, 1 = min_distance
+                    similarity = 1.0 - ((distance - min_distance) / distance_range)
+                else:
+                    # All distances are very similar, assign based on rank
+                    similarity = 1.0 - (i * 0.05)  # Decreasing similarity by rank
+
+                # Ensure similarity is in valid range
+                similarity = max(0.0, min(1.0, similarity))
+
+                print(f"Paper {i}: distance={distance:.4f}, similarity={similarity:.4f}, threshold={self.config['data']['min_similarity']}")
+
                 paper_info = {
                     'id': results['ids'][0][i],
                     'document': results['documents'][0][i],
                     'metadata': results['metadatas'][0][i],
-                    'similarity': 1 - results['distances'][0][i],  # Convert distance to similarity
+                    'similarity': similarity,
                     'title': results['metadatas'][0][i]['title'],
                     'authors': results['metadatas'][0][i]['authors'].split(', '),
                     'categories': results['metadatas'][0][i]['categories'].split(', '),
                     'published': results['metadatas'][0][i]['published'],
                     'primary_category': results['metadatas'][0][i]['primary_category']
                 }
-                
-                # Only include papers above similarity threshold
-                if paper_info['similarity'] >= self.config['data']['min_similarity']:
-                    relevant_papers.append(paper_info)
-            
+
+                # Include all papers for now (remove similarity filtering)
+                relevant_papers.append(paper_info)
+                print(f"Added paper: {paper_info['title'][:50]}... (similarity: {similarity:.4f})")
+
+            print(f"Returning {len(relevant_papers)} papers")
             return relevant_papers
-            
+
         except Exception as e:
             print(f"Error retrieving papers: {e}")
+            import traceback
+            print(traceback.format_exc())
             return []
     
     def chunk_text(self, text: str) -> List[str]:
