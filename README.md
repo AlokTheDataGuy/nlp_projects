@@ -39,10 +39,12 @@ A medical question-answering chatbot that provides appropriate and relevant medi
 
 **Key Technologies**: FastAPI, React, Ollama (Meditron 7B, Llama 3.1 8B), MedQuAD Dataset, FAISS, Pandas, NumPy, Tailwind CSS, TypeScript
 
-### 6. Auto Learn Bot
-An AI-powered system that monitors YouTube channels, extracts transcripts, identifies key insights, and allows users to query this information through a chatbot interface.
+### 6. Dynamic News Chatbot
+An intelligent news chatbot that automatically updates its knowledge base with fresh articles and provides conversational interactions powered by Llama 3.1 8B.
 
-**Key Technologies**: FastAPI, React, MongoDB, Pinecone, YouTube Data API, YouTube Transcript API, OpenAI GPT-4, LangChain, Pydantic
+![Dynamic News Chatbot](6.%20dynamic-news-chatbot/screenshots/chat.png)
+
+**Key Technologies**: Streamlit, Python, Ollama (Llama 3.1 8B), NewsAPI, newspaper3k, BeautifulSoup, ChromaDB, SentenceTransformers
 
 ### 7. Chatbot Sentiment Analysis
 A sophisticated chatbot with sentiment analysis capabilities to recognize and respond appropriately to customer emotions.
@@ -51,31 +53,20 @@ A sophisticated chatbot with sentiment analysis capabilities to recognize and re
 
 **Key Technologies**: FastAPI, React, Hugging Face Transformers (RoBERTa), Ollama (Llama3.1:8b), Material-UI, Chart.js, Pydantic, WebSockets
 
-### 8. arXiv-based Research Assistant
-A domain-specific expert chatbot using arXiv papers as a knowledge source, powered by fine-tuned Mistral 7B and retrieval-augmented generation.
+### 8. arXiv-CS Expert Chatbot 
+CS Expert Chatbot powered by an open-source foundation LLM (Llama 3) + Retrieval Augmented Generation (RAG).
 
-**Key Technologies**: Python, Mistral 7B, Faiss, MongoDB, FastAPI, React, Docker, LangChain, Sentence-Transformers, PyPDF2, D3.js, React-Force-Graph
+![CS Expert Chatbot](8.%20arvix-cs-expert-chatbot/screenshots/Chat_Interface.png)
+
+**Key Technologies**: Python, LLama3, ChromaDB, Streamlit, LangChain, Sentence-Transformers, Plotly, NetworkX, seaborn, wordcloud 
 
 ### 9. Multi-Lingual Chatbot
 A multilingual chatbot supporting English, Hindi, Bengali, and Marathi with automatic language detection, translation, and transliteration capabilities.
 
-![Multi-Lingual Chatbot](9.%20multi-lingual%20chatbot/screenshot.png)
+![Multi-Lingual Chatbot](9.%20multi-lingual%20chatbot/screenshot9.png)
 
 **Key Technologies**: FastAPI, React, fastText, Ollama (LLaMA3.1-8B), IndicBART, IndicXlit, styled-components, Pydantic, Uvicorn
 
-## Technical Stack
-
-The projects in this repository utilize a variety of technologies:
-
-- **Backend Frameworks**: FastAPI, Flask, Uvicorn
-- **Frontend**: React, TypeScript, Vite, Material-UI, TailwindCSS, styled-components
-- **AI/ML**: PyTorch, Transformers, Hugging Face models, LangChain, NLTK, spaCy
-- **LLMs**: Mistral, Llama, Qwen, Meditron (via Ollama), OpenAI GPT-4
-- **Databases**: MongoDB, Faiss, Pinecone, SQLite
-- **Vector Embeddings**: Sentence-Transformers, all-mpnet-base-v2
-- **Visualization**: Chart.js, D3.js, Plotly, Matplotlib
-- **Deployment**: Docker, Docker Compose
-- **APIs**: YouTube Data API, YouTube Transcript API
 
 ## Skills Demonstrated
 
