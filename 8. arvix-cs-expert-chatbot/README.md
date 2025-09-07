@@ -1,4 +1,4 @@
-# 🤖 CS Expert AI Assistant  
+# 🤖 Arvix-CS-Expert-Chatbot
 **CS Expert Chatbot powered by an open-source foundation LLM (Llama 3) + Retrieval Augmented Generation (RAG)**  
 
 ## Screenshots
