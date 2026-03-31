@@ -2,7 +2,7 @@
 
 A unique multilingual chatbot that supports English, Hindi, Bengali, and Marathi with automatic language detection, translation, and transliteration capabilities.
 
-![Multilingual Chatbot Demo](screenshot.png)
+![Multilingual Chatbot Demo](screenshot9.png)
 *Screenshot of the chatbot interface*
 
 ## Features
@@ -30,7 +30,7 @@ The application consists of two main components:
    - Real-time language detection display
    - Session management
 
-![Architecture Diagram](docs/images/architecture.png)
+![Architecture Diagram](docs/images/architecture9.png)
 *Screenshot placeholder: Replace with an architecture diagram*
 
 ## Installation
