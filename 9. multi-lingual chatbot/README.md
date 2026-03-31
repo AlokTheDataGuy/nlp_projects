@@ -30,7 +30,7 @@ The application consists of two main components:
    - Real-time language detection display
    - Session management
 
-![Architecture Diagram](docs/images/architecture9.png)
+![Architecture Diagram](architecture9.png)
 *Screenshot placeholder: Replace with an architecture diagram*
 
 ## Installation
@@ -97,12 +97,6 @@ The application consists of two main components:
 2. Start typing messages in any supported language
 3. The chatbot will automatically detect the language and respond accordingly
 4. You can type in Latin script (e.g., "namaste") and the system will transliterate to the appropriate script (e.g., "नमस्ते")
-
-![Language Detection Demo](docs/images/language-detection.png)
-*Screenshot placeholder: Replace with a screenshot showing language detection*
-
-![Transliteration Demo](docs/images/transliteration.png)
-*Screenshot placeholder: Replace with a screenshot showing transliteration*
 
 ## Supported Languages
 
